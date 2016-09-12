@@ -1,0 +1,75 @@
+﻿@font-face{font-family:Ikaros-Regular;src:url('../fonts/Ikaros-Regular.otf');}
+@font-face{font-family:ONEDAY;src:url('../fonts/ONEDAY.ttf');}
+
+
+*{
+    padding:0px;
+    margin:0px;
+    font-family:'Segoe UI';
+}
+
+body{
+    background-color:#6e3667;
+}
+
+.container{
+    width:1000px;
+    /*background-color:red;*/
+    margin:auto;
+}
+
+#avq_dental{
+    color:white;
+    font-size:75px;
+    /*float:left;*/
+    position:relative;
+    top:200px;
+    font-family:Ikaros-Regular;
+}
+
+#avq_dental1{
+    position:relative;
+    top:300px;
+    left:-165px;
+    font-family:ONEDAY;
+    font-size:75px;
+    color:#88d317;
+}
+
+.login{
+    font-family:'Segoe Print';
+    width:300px;
+    font-size:24px;
+    background-color:rgba(0,0,0,0.3);
+    border:2px solid #88d317;
+    color:white;
+    padding:10px;
+    position:relative;
+    top:100px;
+    margin-left:675px;
+}
+
+.login #txtLabel{
+    position:relative;
+    left:5px;
+    padding-bottom:5px;
+    border-bottom:2px solid #88d317;
+}
+
+.login input[type=text], .login input[type=password]{
+    width:95%;
+    margin:10px 0px;
+    font-size:16px;
+    padding:5px;
+    background-color:rgba(0,0,0,0);
+    border:1px solid #88d317;
+    color:white;
+}
+
+.login input[type=submit]{
+    background-color:rgba(0,0,0,0);
+    color:white;
+    padding:5px 50px;
+    font-size:16px;
+    border:1px solid #88d317;
+}
