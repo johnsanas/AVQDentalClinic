@@ -43,7 +43,7 @@ public partial class admin : System.Web.UI.Page
     }
 
     protected void PopulateGridView(GridView gv) {
-        string query = "select * from patient";
+        string query = "select id, first_name,middle_name,last_name,address,contact_number,status,occupation from patient";
         DataSet ds = new DataSet();
         ds = BindData(query);
         gv.DataSource = ds.Tables[0];
@@ -75,7 +75,7 @@ public partial class admin : System.Web.UI.Page
         GridViewRow row = e.Row as GridViewRow;
 
         DataSet ds = new DataSet();
-        ds = BindData("select * from patient");
+        ds = BindData("select id, first_name,middle_name,last_name,address,contact_number,status,occupation from patient");
         //row.Cells[4].Text = lblBirthday.Text.ToString();
         //row.Cells[4].Text = row.RowIndex.ToString();
         //e.Row.Cells[1].Text = "hello";
@@ -170,6 +170,9 @@ public partial class admin : System.Web.UI.Page
         //string query = "update patient set first_name='"+first_name+"',middle_name='"+middle_name+"',last_name='"+last_name+"',address='"+address+"',contact_number='"+contact_number+"',birthday='"+birthday+"',status='"+status+"',occupation='"+occupation+ "' where id='"+id+"'";
         string query = "update patient set first_name='" + first_name + "',middle_name='" + middle_name + "',last_name='" + last_name + "',address='" + address + "',contact_number='" + contact_number + "',status='" + status + "',occupation='" + occupation + "' where id='" + id + "'";
         QuerySender(query);
+
+        gvPatient.EditIndex = -1;
+        PopulateGridView(gvPatient);
     }
 
     protected void QuerySender(string qry) {

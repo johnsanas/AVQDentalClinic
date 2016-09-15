@@ -23,7 +23,7 @@ public partial class index : System.Web.UI.Page
         MySqlConnection con = new MySqlConnection(Resources_Text.ConnectionString);
 
         con.Open();
-        string query = "select * from tbluser where username='" + username + "' and password='" + password + "'";
+        string query = "select * from sample where username='" + username + "' and password='" + password + "'";
         MySqlCommand q_command = new MySqlCommand(query, con);
         MySqlDataReader reader = q_command.ExecuteReader();
 
@@ -36,11 +36,13 @@ public partial class index : System.Web.UI.Page
             reader.Read();
             Session["username"] = reader.GetString(1) + " " + reader.GetString(2);
             Response.Redirect("admin.aspx");
+            lblAlert.Visible = false;
         }
         else
         {
-            txtLabel.Text = "Username or Password Incorrect";
-            txtUserName.Text = "";
+            //txtLabel.Text = "Username or Password Incorrect";
+            //txtUserName.Text = "";
+            lblAlert.Visible = true;
         }
 
 
