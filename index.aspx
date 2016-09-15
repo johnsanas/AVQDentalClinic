@@ -1,15 +1,8 @@
-<?php
-session_start();
-session_unset();
-  if(!isset($_SESSION['submitClicked'])){
-  		$_SESSION['display'] = "display:none;";
-  }
-
-?>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="index.aspx.cs" Inherits="index" %>
 
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
 	<title>AVQ Dental Clinic</title>
 
 	<meta charset="utf-8">
@@ -18,14 +11,10 @@ session_unset();
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<script type="text/javascript" src="js/bootstrap.js"></script>
-	<script src="js/jquery-3.1.0.min.js"></script>
-
-
 
 </head>
 
 <body>
-
 
 	<nav class="navbar navbar-default increase-padding">
 	  <div class="container">
@@ -71,18 +60,23 @@ session_unset();
 			        <p>Quisque ornare placerat risus. Ut molestie magna at mi. Integer aliquet mauris et nibh
 						<br>Duis pretium mi euismod erat. Maecenas id augue. </p>
 						<br>
-						 <form method="post" class="form-inline">
+
+						 <form id="form1" runat="server" class="form-inline">
 						  <div class="form-group">
-						    <label class="sr-only" for="userid">Username:</label>
-						    <input type="text" name="userid" class="form-control" id="userid" placeholder="Username">
+						    <label class="sr-only" for="txtUserName">Username:</label>
+						    <%--<input type="text" name="userid" class="form-control" id="userid" placeholder="Username">--%>
+                            <asp:TextBox ID="txtUserName" runat="server" class="form-control" placeholder="Username"></asp:TextBox>
 						  </div>
 						  <div class="form-group">
-						    <label class="sr-only" for="pwd">Password:</label>
-						    <input type="password" name="password" class="form-control" id="pwd" placeholder="Password">
+						    <label class="sr-only" for="txtPassWord">Password:</label>
+                            <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" class="form-control" placeholder="Password"></asp:TextBox>
+						    <%--<input type="password" name="password" class="form-control" id="pwd" placeholder="Password">--%>
 						  </div>
-						  <button type="submit" name="btn" class="btn btn-default">Log in</button>
+						  <%--<button type="submit" name="btn" class="btn btn-default">Log in</button>--%>
+                          <asp:Button class="btn btn-default" ID="btnSubmit" runat="server" Text="Log in" OnClick="Click"/>
 						  <br><br>
-						 <span class="bg-danger" style="<?php echo $_SESSION['display']; ?>"><strong>Username</strong> or <strong>Password</strong> do not match. Please try again</span>
+						 <span ID="spanAlert" class="bg-danger"><asp:Label runat="server" ID="lblAlert" Visible="false"><strong>Username</strong> or <strong>Password</strong> do not match. Please try again</asp:Label></span>
+                             <asp:span></asp:span>
 						</form>
 			      </div>
 		      </div>
@@ -196,63 +190,21 @@ session_unset();
 	</div>
 
     <script>
-      function initMap() {
-        var mapDiv = document.getElementById('map');
-        var map = new google.maps.Map(mapDiv, {
-            center: {lat: 14.544785, lng: 121.067239},
-            zoom: 20
-        });
-      }
+        function initMap() {
+            var mapDiv = document.getElementById('map');
+            var map = new google.maps.Map(mapDiv, {
+                center: { lat: 14.544785, lng: 121.067239 },
+                zoom: 20
+            });
+        }
     </script>
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key= AIzaSyBPIUO8c2pEW45JgEd1XbHmnbNDa__lClU &callback=initMap">
     </script>
-
+	 
+    <script src="js/jquery-3.1.0.min.js"></script>
      <script src="js/vendor/jquery.2.1.3.min.js"></script>
 	  <script src="js/jquery.lazyload.v1.9.1.js"></script>
 	  <script src="js/script.js"></script>
 </body>
 </html>
-
-<?php
-if(isset($_POST["btn"]))
-{
-
-$conn = mysqli_connect("localhost","root","localhost@@","avqdentalclinic");
-if(!$conn)
-{
-		die("Connection failed: ".mysqli_connect_error());
-}
-
-	$query = "SELECT * FROM actor WHERE first_name='".$_POST["userid"]."' and last_name='".$_POST["password"]."'";
-	
-	$result = mysqli_query($conn, $query);
-
-
-	if ($result->num_rows){
-		//User Details
-		//$user = mysqli_fetch_assoc($result);
-		header('location:php/welcome.php');
-		
-	}else {
-		$_SESSION['display'] = "";
-  		$_SESSION['submitClicked'] = true;
-		header('location:index.php');
-	}
-
-
-	/*	 if ($user->num_rows)
-
- 
-	{
-		$rows=mysqli_fetch_assoc($user);
-		header('location:php/welcome.php');
-	}else{
-  		$_SESSION['display'] = "";
-  		$_SESSION['submitClicked'] = true;
-		header('location:index.php');
-	}
-	}	*/
-
-}
-?>

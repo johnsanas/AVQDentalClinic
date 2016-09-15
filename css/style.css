@@ -66,16 +66,145 @@ body {
 	color: #a94442;
 }
 
-.custom-width{
-  width: 100%;
+/*===========MAPS*/
+.map{
+  height: 100px;
+}
+
+
+.height{
+  height: 50px;
+}
+.height1{
+  height: 100px;
+}
+
+.height2{
+  height: 200px;
+}
+
+.height3{
+  height: 300px;
 }
 
 .footer{
   background-color: #2c3e50;
   height: 50px;
-  margin-top: 299px;
 }
 .text-footer{
   color: #ebeff2;
   margin-top: 20px;
 }
+
+
+/*=====================SYTLE*/
+
+.vertical-align, .hero__content {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%); }
+
+.services {
+  overflow-x: hidden;
+  font: 100% / 1.618 "Ubuntu", arial;
+  color: #6f6f6f; 
+
+  }
+
+.services a {
+  text-decoration: none;
+  transition: color 0.25s; }
+
+
+
+.listing__board {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center; }
+
+.listing__card {
+  position: relative;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  width: 250px;
+  background: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: box-shadow 0.25s ease-in-out; }
+  .listing__card:focus, .listing__card:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }
+    .listing__card:focus .card__inner, .listing__card:hover .card__inner {
+      color: rgba(255, 255, 255, 0.75); }
+    .listing__card:focus .card__overlay, .listing__card:hover .card__overlay {
+      background-color: rgba(0, 0, 0, 0.75); }
+
+.card--explore .card__inner {
+  font-weight: bold;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.95); }
+
+.card__inner {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  transition: color 0.25s ease-in-out; }
+
+
+/*---------------------------------*\
+  Cards
+\*---------------------------------*/
+
+
+.card--post .card__inner {
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap; }
+
+.post__thumbnail,
+.post__info {
+  width: 100%;
+  height: 50%;
+  overflow: hidden; }
+
+.post__thumbnail img {
+  width: 100%;
+  max-width: 100%;
+  height: 100%; }
+
+.no-js-img {
+  display: none; }
+
+.post__info {
+  padding: 1rem;
+  text-align: center; }
+
+.post__info h3 {
+  font-weight: bold;
+  color: #337ab7; }
+
+.post__info hr {
+  max-width: 1rem;
+  opacity: .15; }
+
+.post__info p {
+  font-size: 1em;
+  color: rgba(51, 51, 51, 0.5); }
+
+.post-font{
+  font-size: 1em;
+}
+
+

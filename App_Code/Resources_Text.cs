@@ -8,7 +8,7 @@ using System.Web;
 /// </summary>
 public class Resources_Text
 {
-    public static string ConnectionString = "Database=avq;Data Source=localhost; User Id=root;Password=";
+    public static string ConnectionString = "Database=avqdentalclinic;Data Source=localhost; User Id=root;Password=localhost@@";
     //
     // TODO: Add constructor logic here
     //

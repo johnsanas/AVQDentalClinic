@@ -35,12 +35,14 @@ public partial class index : System.Web.UI.Page
         {
             reader.Read();
             Session["username"] = reader.GetString(1) + " " + reader.GetString(2);
-            Response.Redirect("admin.aspx");
+            Response.Redirect("~/csharp/admin.aspx");
+            lblAlert.Visible = false;
         }
         else
         {
-            txtLabel.Text = "Username or Password Incorrect";
-            txtUserName.Text = "";
+            //txtLabel.Text = "Username or Password Incorrect";
+            //txtUserName.Text = "";
+            lblAlert.Visible = true;
         }
 
 
