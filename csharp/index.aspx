@@ -59,7 +59,7 @@
 			        <p class="carousel-font">Welcome to <br>AVQ <span class="avq-blue">Dental Clinic</span></p>
 			        <p>Quisque ornare placerat risus. Ut molestie magna at mi. Integer aliquet mauris et nibh
 						<br>Duis pretium mi euismod erat. Maecenas id augue. </p>
-						<br>
+						<br> 
 
 						 <form id="form1" runat="server" class="form-inline">
 						  <div class="form-group">
@@ -75,8 +75,8 @@
 						  <%--<button type="submit" name="btn" class="btn btn-default">Log in</button>--%>
                           <asp:Button class="btn btn-default" ID="btnSubmit" runat="server" Text="Log in" OnClick="Click"/>
 						  <br><br>
-						 <span ID="spanAlert" class="bg-danger"><asp:Label runat="server" ID="lblAlert" Visible="false"><strong>Username</strong> or <strong>Password</strong> do not match. Please try again</asp:Label></span>
-                             <asp:span></asp:span>
+						 <span id="spanAlert" class="bg-danger"><asp:Label runat="server" ID="lblAlert" Visible="false"><strong>Username</strong> or <strong>Password</strong> do not match. Please try again</asp:Label></span>
+                             
 						</form>
 			      </div>
 		      </div>
