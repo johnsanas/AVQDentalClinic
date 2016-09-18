@@ -72,10 +72,16 @@ public partial class admin_addpatient : System.Web.UI.Page
 
             string qry = "insert into patient (first_name,middle_name,last_name,address,contact_number,status,occupation) values('" + first_name + "','" + middle_name + "','" + last_name + "','" + address + "','" + contact_number + "','" + birthday + "','" + status + "','" + occupation + "')";
 
-            MySqlConnection con = new MySqlConnection(Resources_Text.ConnectionString);
-            con.Open();
-            MySqlCommand q_command = new MySqlCommand(qry, con);
-            q_command.ExecuteNonQuery();
+            using (MySqlConnection con = new MySqlConnection(Resources_Text.ConnectionString)) {
+                con.Open();
+                MySqlCommand q_command = new MySqlCommand(qry, con);
+                q_command.ExecuteNonQuery();
+            }
+
+            //MySqlConnection con = new MySqlConnection(Resources_Text.ConnectionString);
+            //con.Open();
+            //MySqlCommand q_command = new MySqlCommand(qry, con);
+            //q_command.ExecuteNonQuery();
 
             Response.Redirect("admin.aspx");
         }

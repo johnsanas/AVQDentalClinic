@@ -33,12 +33,17 @@ public partial class admin : System.Web.UI.Page
 
     protected DataSet BindData(string str) {
         DataSet ds = new DataSet();
-
-        MySqlConnection con = new MySqlConnection(Resources_Text.ConnectionString);
-        con.Open();
-        MySqlCommand com = new MySqlCommand(str, con);
-        MySqlDataAdapter da = new MySqlDataAdapter(com);
-        da.Fill(ds);
+        using (MySqlConnection con = new MySqlConnection(Resources_Text.ConnectionString)) {
+            con.Open();
+            MySqlCommand com = new MySqlCommand(str, con);
+            MySqlDataAdapter da = new MySqlDataAdapter(com);
+            da.Fill(ds);
+        }
+        //MySqlConnection con = new MySqlConnection(Resources_Text.ConnectionString);
+        //con.Open();
+        //MySqlCommand com = new MySqlCommand(str, con);
+        //MySqlDataAdapter da = new MySqlDataAdapter(com);
+        //da.Fill(ds);
         return ds;
     }
 

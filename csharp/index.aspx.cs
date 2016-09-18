@@ -20,6 +20,7 @@ public partial class index : System.Web.UI.Page
         string username = txtUserName.Text;
         string password = txtPassword.Text;
         //experiment
+
         MySqlConnection con = new MySqlConnection(Resources_Text.ConnectionString);
 
         con.Open();
