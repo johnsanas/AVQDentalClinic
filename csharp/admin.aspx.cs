@@ -182,10 +182,15 @@ public partial class admin : System.Web.UI.Page
 
     protected void QuerySender(string qry) {
         //MySqlConnection con = new MySqlConnection("Database=avq;Data Source=localhost; User Id=root;Password=");
-        MySqlConnection con = new MySqlConnection(Resources_Text.ConnectionString);
-        con.Open();
-        MySqlCommand com = new MySqlCommand(qry, con);
-        com.ExecuteNonQuery();
+        using (MySqlConnection con = new MySqlConnection(Resources_Text.ConnectionString)) {
+            con.Open();
+            MySqlCommand com = new MySqlCommand(qry, con);
+            com.ExecuteNonQuery();
+        }
+        //MySqlConnection con = new MySqlConnection(Resources_Text.ConnectionString);
+        //con.Open();
+        //MySqlCommand com = new MySqlCommand(qry, con);
+        //com.ExecuteNonQuery();
     }
 
 }

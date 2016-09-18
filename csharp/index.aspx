@@ -186,7 +186,7 @@
 
 
 	<div class="container-fluid footer text-center">
-		<p class="text-footer">2016 Copyright, AVQ Dental Clinic | Mechansm </p>
+		<p class="text-footer">2016 Copyright, AVQ Dental Clinic | Mekansm </p>
 	</div>
 
     <script>
