@@ -14,7 +14,7 @@
         <asp:Button ID="btnLogout" runat="server" Text="Logout" OnClick ="Click_btnLogout" />
     </div>
 
-        <asp:GridView ID="gvPatient" runat="server" AutoGenerateColumns ="false" CellPadding="5" OnRowEditing ="gvPatient_RowEditing" OnRowCancelingEdit="gvPatient_RowCancellingEdit" OnRowUpdating="gvPatient_RowUpdating" OnRowDataBound="gvPatient_RowDataBound">
+        <asp:GridView ID="gvPatient" runat="server" AutoGenerateColumns ="false" CellPadding="5" OnRowEditing ="gvPatient_RowEditing" OnRowCancelingEdit="gvPatient_RowCancellingEdit" OnRowUpdating="gvPatient_RowUpdating" OnRowDataBound="gvPatient_RowDataBound" OnRowDelete ="gvPatient_RowDelete">
             <Columns>
                 <asp:TemplateField HeaderText ="First Name">
                     <ItemTemplate>

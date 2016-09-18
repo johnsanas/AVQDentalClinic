@@ -19,32 +19,54 @@ public partial class index : System.Web.UI.Page
     {
         string username = txtUserName.Text;
         string password = txtPassword.Text;
-        //experiment
 
-        MySqlConnection con = new MySqlConnection(Resources_Text.ConnectionString);
+        //try
+        using (MySqlConnection con = new MySqlConnection(Resources_Text.ConnectionString)) {
+            con.Open();
+            string query = "select * from sample where username='" + username + "' and password='" + password + "'";
+            MySqlCommand q_command = new MySqlCommand(query, con);
+            MySqlDataReader reader = q_command.ExecuteReader();
 
-        con.Open();
-        string query = "select * from sample where username='" + username + "' and password='" + password + "'";
-        MySqlCommand q_command = new MySqlCommand(query, con);
-        MySqlDataReader reader = q_command.ExecuteReader();
-
-        //reader.Read();
-        //reader.GetString(0);
-        //reader.Close();
-
-        if (reader.HasRows)
-        {
-            reader.Read();
-            Session["username"] = reader.GetString(1) + " " + reader.GetString(2);
-            Response.Redirect("admin.aspx");
-            lblAlert.Visible = false;
+            if (reader.HasRows)
+            {
+                reader.Read();
+                Session["username"] = reader.GetString(1) + " " + reader.GetString(2);
+                Response.Redirect("admin.aspx");
+                lblAlert.Visible = false;
+            }
+            else
+            {
+                //txtLabel.Text = "Username or Password Incorrect";
+                //txtUserName.Text = "";
+                lblAlert.Visible = true;
+            }
         }
-        else
-        {
-            //txtLabel.Text = "Username or Password Incorrect";
-            //txtUserName.Text = "";
-            lblAlert.Visible = true;
-        }
+        //end try
+
+        //MySqlConnection con = new MySqlConnection(Resources_Text.ConnectionString);
+
+        //con.Open();
+        //string query = "select * from sample where username='" + username + "' and password='" + password + "'";
+        //MySqlCommand q_command = new MySqlCommand(query, con);
+        //MySqlDataReader reader = q_command.ExecuteReader();
+
+        ////reader.Read();
+        ////reader.GetString(0);
+        ////reader.Close();
+
+        //if (reader.HasRows)
+        //{
+        //    reader.Read();
+        //    Session["username"] = reader.GetString(1) + " " + reader.GetString(2);
+        //    Response.Redirect("admin.aspx");
+        //    lblAlert.Visible = false;
+        //}
+        //else
+        //{
+        //    //txtLabel.Text = "Username or Password Incorrect";
+        //    //txtUserName.Text = "";
+        //    lblAlert.Visible = true;
+        //}
 
 
         //DO NOT REMOVE THIS COMMENTSSSS!!! --PELP
