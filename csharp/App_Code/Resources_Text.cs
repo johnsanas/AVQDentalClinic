@@ -6,7 +6,7 @@ using System.Web;
 
 /// <summary>
 /// Summary description for Resources_Text
-/// </summary>
+/// </summary>test
 public class Resources_Text
 {
     public static string ConnectionString = "Database=avq;Data Source=localhost; User Id=root;Password=";
