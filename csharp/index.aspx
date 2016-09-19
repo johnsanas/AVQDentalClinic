@@ -9,13 +9,15 @@
  	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<script type="text/javascript" src="js/bootstrap.js"></script>
 
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
 <body>
-
 	<nav class="navbar navbar-default increase-padding">
 	  <div class="container">
 	    <div class="navbar-header">
@@ -33,9 +35,9 @@
 	      </form>
 	      <ul class="nav navbar-nav navbar-right">
 	        <li class="active"><a href="#">Home</a></li>
-	        <li><a href="#">About</a></li>
-	        <li><a href="#">Services</a></li>
-	        <li><a href="#">Login</a></li>
+	        <li><a href="about.aspx">About</a></li>
+	        <li><a href="services.aspx">Services</a></li>
+	        <li><a href="#" data-toggle="modal" data-target="#loginModal">Login</a></li>
 	      </ul>
 	    </div>
 	  </div>
@@ -83,10 +85,23 @@
 		    </div>
 
          <div class="item">
-			  <img src="img/photo2.jpg" alt="Chania" width="460" height="345">
+			  <img src="img/photo1.jpg" alt="Chania" width="460" height="345">
 			  <div class="carousel-caption">
-			    <h3>Chania</h3>
-			    <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
+			    
+			  </div>
+			</div>
+
+			<div class="item">
+			  <img src="img/photo3.jpg" alt="Chania" width="460" height="345">
+			  <div class="carousel-caption">
+			    
+			  </div>
+			</div>
+
+			<div class="item">
+			  <img src="img/photo4.jpg" alt="Chania" width="460" height="345">
+			  <div class="carousel-caption">
+			    
 			  </div>
 			</div>
 
@@ -111,7 +126,7 @@
 	<div class="container-fluid height text-center"></div>
 	
   <div class="wrapper container">
-  	 <h1 class="text-center avq-blue">SERVICES</h1><br>
+  	 <h1 class="text-center">OUR SERVICES</h1><br>
     <section class="trip__listing">
       <div class="container">
         <div class="listing__board">
@@ -183,7 +198,34 @@
 	<div class="container-fluid height text-center"></div>
 	<div id="map" class="container-fluid text-center height3"></div>
 
+	<!-- Modal -->
+	<div id="loginModal" class="modal fade" role="dialog">
+	  <div class="modal-dialog">
 
+	    <!-- Modal content-->
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal">&times;</button>
+	        <h4 class="modal-title">AVQ Dental Clinic</h4>
+	      </div>
+	      <div class="modal-body">
+	         <form>
+				  <div class="form-group">
+				    <label for="email">Username</label>
+				    <input type="email" class="form-control" id="email">
+				  </div>
+				  <div class="form-group">
+				    <label for="pwd">Password:</label>
+				    <input type="password" class="form-control" id="pwd">
+				  </div>
+				  
+				  <button type="submit" class="btn btn-default">Login</button>
+				</form>
+	      </div>
+	    </div>
+
+	  </div>
+	</div>
 
 	<div class="container-fluid footer text-center">
 		<p class="text-footer">2016 Copyright, AVQ Dental Clinic | Mechansm </p>
@@ -202,9 +244,8 @@
         src="https://maps.googleapis.com/maps/api/js?key= AIzaSyBPIUO8c2pEW45JgEd1XbHmnbNDa__lClU &callback=initMap">
     </script>
 	 
-    <script src="js/jquery-3.1.0.min.js"></script>
-     <script src="js/vendor/jquery.2.1.3.min.js"></script>
-	  <script src="js/jquery.lazyload.v1.9.1.js"></script>
-	  <script src="js/script.js"></script>
+   
+   <script src="js/jquery.lazyload.v1.9.1.js"></script>
+   <script src="js/script.js"></script>
 </body>
 </html>

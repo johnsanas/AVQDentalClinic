@@ -8,11 +8,12 @@ using MySql.Data;
 using System.Data;
 using MySql.Data.MySqlClient;
 
-public partial class index : System.Web.UI.Page
+public partial class admin : System.Web.UI.Page
 {
+
     protected void Page_Load(object sender, EventArgs e)
     {
-        
+
     }
 
     public void Click(object sender, EventArgs e)
@@ -53,7 +54,7 @@ public partial class index : System.Web.UI.Page
         //Session["username"] = "example";
         //txtLabel.Text = txtPassword.Text;
         //Response.Redirect("admin.aspx");
-        
+
         //Server.Transfer("admin.aspx", false);
     }
 }

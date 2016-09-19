@@ -20,6 +20,8 @@ public partial class admin : System.Web.UI.Page
             }
 
             btnLogout.Text = "(" + (string)Session["username"] + ") Logout";
+            lblUserName.Text =  (string)Session["username"]  ;
+
 
             PopulateGridView(gvPatient);
         }
