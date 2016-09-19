@@ -99,6 +99,12 @@
                     </EditItemTemplate>
                 </asp:TemplateField>
 
+                <asp:TemplateField>
+                    <ItemTemplate>
+                        <asp:Button ID="btnAddRecordxx" runat="server" CommandArgument='<%# Eval("id") %>' Text ='<%# Eval("id") %>' OnClick="btnAddRecordClick"/>
+                    </ItemTemplate>
+                </asp:TemplateField>
+
             </Columns>
         </asp:GridView>
 

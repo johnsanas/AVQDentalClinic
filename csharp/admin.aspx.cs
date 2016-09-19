@@ -193,6 +193,19 @@ public partial class admin : System.Web.UI.Page
         //com.ExecuteNonQuery();
     }
 
+    protected void btnAddRecordClick(object sender, EventArgs e) {
+        //Button button = (Button)gvPatient.FindControl("btnAddRecord");
+        Button button = sender as Button;
+        String url = "addrecord.aspx?id=" + button.CommandArgument.ToString();
+        Response.Redirect(url);
+    }
+
+
+    protected void gvPatient_RowCommand(object sender, GridViewCommandEventArgs e)
+    {
+        String url = "addrecord.aspx?id=" + e.CommandArgument.ToString();
+        Response.Redirect(url);
+    }
 }
 
 //to read value from session variable: kelangan muna magcast Label1.Text = (string)Session["username"]
