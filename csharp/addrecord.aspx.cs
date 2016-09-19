@@ -44,16 +44,18 @@ public partial class addrecord : System.Web.UI.Page
         return ds;
     }
 
-
-
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
         String user_id = hdnID.Value.ToString();
         String service_id = ddlServices.SelectedValue.ToString();
         String description = txtDescription.Text.ToString();
-        String query = "insert into services_rendered(user_id,service_id,description,date_time) values('" + user_id+ "','"+ service_id +"','"+ description +"',now())";
+        String query = "insert into dental_records(patient_id,service_id,description,date_time,staff_id) values('" + user_id+ "','"+ service_id +"','"+ description +"',now(),'"+ Session["username"] +"')";
 
         Resources_Text.QuerySender(query);
+
+        query = "select * from services where id='"+ service_id +"'";
+
+
         Response.Redirect("admin.aspx");
     }
 }

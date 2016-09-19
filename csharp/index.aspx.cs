@@ -30,7 +30,8 @@ public partial class index : System.Web.UI.Page
             if (reader.HasRows)
             {
                 reader.Read();
-                Session["username"] = reader.GetString(1) + " " + reader.GetString(2);
+                //Session["username"] = reader.GetString(1) + " " + reader.GetString(2);
+                Session["username"] = reader.GetString(0);
                 Response.Redirect("admin.aspx");
                 lblAlert.Visible = false;
             }

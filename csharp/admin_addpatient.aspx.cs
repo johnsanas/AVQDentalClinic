@@ -70,7 +70,7 @@ public partial class admin_addpatient : System.Web.UI.Page
         if (complete_form==true) {
             //string qry = "insert into patient (first_name,middle_name,last_name,address,contact_number,birthday,status,occupation) values('" + first_name + "','" + middle_name + "','" + last_name + "','" + address + "','" + contact_number + "','" + birthday + "','" + status + "','" + occupation + "')";
 
-            string qry = "insert into patient (first_name,middle_name,last_name,address,contact_number,status,occupation) values('" + first_name + "','" + middle_name + "','" + last_name + "','" + address + "','" + contact_number + "','" + birthday + "','" + status + "','" + occupation + "')";
+            string qry = "insert into patient (first_name,middle_name,last_name,address,contact_number,status,occupation) values('" + first_name + "','" + middle_name + "','" + last_name + "','" + address + "','" + contact_number + "','" + status + "','" + occupation + "')";
 
             using (MySqlConnection con = new MySqlConnection(Resources_Text.ConnectionString)) {
                 con.Open();
