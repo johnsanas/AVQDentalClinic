@@ -330,7 +330,7 @@
 
                 <asp:TemplateField>
                     <ItemTemplate>
-                        <asp:Button ID="btnAddRecordxx" runat="server" CommandArgument='<%# Eval("id") %>' Text ='<%# Eval("id") %>' OnClick="btnAddRecordClick"/>
+                        <asp:Button ID="btnAddRecordxx" runat="server" CommandArgument='<%# Eval("id") %>' Text="Add Record" OnClick="btnAddRecordClick"/>
                     </ItemTemplate>
                 </asp:TemplateField>
 
