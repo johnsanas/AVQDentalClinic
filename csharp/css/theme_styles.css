@@ -24,7 +24,7 @@ h6 {
 }
 h1 {
     clear: both;
-    color: #1ABC9C;
+    color: #2896cf;
     margin: 0 0 20px 0;
     padding-left: 14px;
     font-size: 2em;
@@ -1234,6 +1234,7 @@ h3 .small { padding-left: 8px }
     border-color: #0178a5;
 }
 .btn-link { border: none }
+/*
 .btn-primary {
     background-color: #7FC8BA;
     border-color: #7FC8BA;
@@ -1245,7 +1246,7 @@ h3 .small { padding-left: 8px }
 .open .dropdown-toggle.btn-primary {
     background-color: #1ABC9C;
     border-color: #1ABC9C;
-}
+}*/
 .btn-success {
     background-color: #1ABC9C;
     border-color: #1ABC9C;
@@ -1255,10 +1256,11 @@ h3 .small { padding-left: 8px }
 .btn-success:active,
 .btn-success.active,
 .open .dropdown-toggle.btn-success { background-color: #14a689; border-color: #14a689;}
+/*
 .btn-danger {
     background-color: #f4786e;
     border-color: #dd191d;
-}
+}*/
 .btn-danger:hover,
 .btn-danger:focus,
 .btn-danger:active,
@@ -1386,6 +1388,7 @@ h3 .small { padding-left: 8px }
     border-radius: 3px;
     background-clip: padding-box;
 }
+/*
 .pagination>li>a,
 .pagination>li>span,
 .pagination>li>a:hover,
@@ -1406,7 +1409,7 @@ h3 .small { padding-left: 8px }
 .pagination>.active>span:focus {
     background-color: #1ABC9C;
     border-color: #1ABC9C;
-}
+}*/
 .pager li>a,
 .pager li>span { border-width: 2px }
 .list-group-item {

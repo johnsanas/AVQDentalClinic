@@ -33,8 +33,8 @@
 	      </form>
 	      <ul class="nav navbar-nav navbar-right">
 	        <li class="active"><a href="#">Home</a></li>
-	        <li><a href="#">About</a></li>
-	        <li><a href="#">Services</a></li>
+	        <li><a href="csharp/about.aspx">About</a></li>
+	        <li><a href="csharp/about.aspx">Services</a></li>
 	        <li><a href="#">Login</a></li>
 	      </ul>
 	    </div>
@@ -111,7 +111,7 @@
 	<div class="container-fluid height text-center"></div>
 	
   <div class="wrapper container">
-  	 <h1 class="text-center avq-blue">SERVICES</h1><br>
+  	 <h1 class="text-center">OUR SERVICES</h1><br>
     <section class="trip__listing">
       <div class="container">
         <div class="listing__board">

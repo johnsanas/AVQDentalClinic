@@ -33,10 +33,10 @@ public partial class index : System.Web.UI.Page
 
         if (reader.HasRows)
         {
+            lblAlert.Visible = false;
             reader.Read();
             Session["username"] = reader.GetString(1) + " " + reader.GetString(2);
             Response.Redirect("~/csharp/admin.aspx");
-            lblAlert.Visible = false;
         }
         else
         {

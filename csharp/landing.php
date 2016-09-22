@@ -11,8 +11,8 @@
     <!--<link rel="stylesheet" type="text/css" href="css/font-awesome.css"/>-->
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
-    <script type="text/javascript" src="../js/bootstrap.js"></script>
-    <script src="../js/jquery-3.1.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </head>
 <body>
@@ -91,7 +91,7 @@
                             <li>
                                 <a href="index.html">
                                     <i class="fa fa-dashboard"></i>
-                                    <span>Dashboard</span>
+                                    <span>Appointment</span>
                                     <span class="label label-primary label-circle pull-right">10</span>
                                 </a>
                             </li>
@@ -99,7 +99,7 @@
                             <li class="active">
                                 <a href="#" class="dropdown-toggle">
                                     <i class="fa fa-table"></i>
-                                    <span>Record Management</span>
+                                    <span>My Record</span>
                                 <i class="fa fa-angle-right drop-icon"></i>
                                 </a>
                             </li>
@@ -120,9 +120,9 @@
                                 <div class="pull-left">
                                     <ol class="breadcrumb">
                                     <li><a href="#">Home</a></li>
-                                    <li class="active"><span>Record Management</span></li>
+                                    <li class="active"><span>My Record</span></li>
                                     </ol>
-                                    <h1>Record Management</h1>
+                                    <h1>My Record</h1>
                                 </div>
                             </div>
                         </div>

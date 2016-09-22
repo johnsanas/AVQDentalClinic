@@ -35,12 +35,17 @@ public partial class admin : System.Web.UI.Page
 
     protected DataSet BindData(string str) {
         DataSet ds = new DataSet();
-
-        MySqlConnection con = new MySqlConnection(Resources_Text.ConnectionString);
-        con.Open();
-        MySqlCommand com = new MySqlCommand(str, con);
-        MySqlDataAdapter da = new MySqlDataAdapter(com);
-        da.Fill(ds);
+        using (MySqlConnection con = new MySqlConnection(Resources_Text.ConnectionString)) {
+            con.Open();
+            MySqlCommand com = new MySqlCommand(str, con);
+            MySqlDataAdapter da = new MySqlDataAdapter(com);
+            da.Fill(ds);
+        }
+        //MySqlConnection con = new MySqlConnection(Resources_Text.ConnectionString);
+        //con.Open();
+        //MySqlCommand com = new MySqlCommand(str, con);
+        //MySqlDataAdapter da = new MySqlDataAdapter(com);
+        //da.Fill(ds);
         return ds;
     }
 
@@ -179,12 +184,30 @@ public partial class admin : System.Web.UI.Page
 
     protected void QuerySender(string qry) {
         //MySqlConnection con = new MySqlConnection("Database=avq;Data Source=localhost; User Id=root;Password=");
-        MySqlConnection con = new MySqlConnection(Resources_Text.ConnectionString);
-        con.Open();
-        MySqlCommand com = new MySqlCommand(qry, con);
-        com.ExecuteNonQuery();
+        using (MySqlConnection con = new MySqlConnection(Resources_Text.ConnectionString)) {
+            con.Open();
+            MySqlCommand com = new MySqlCommand(qry, con);
+            com.ExecuteNonQuery();
+        }
+        //MySqlConnection con = new MySqlConnection(Resources_Text.ConnectionString);
+        //con.Open();
+        //MySqlCommand com = new MySqlCommand(qry, con);
+        //com.ExecuteNonQuery();
     }
 
+    protected void btnAddRecordClick(object sender, EventArgs e) {
+        //Button button = (Button)gvPatient.FindControl("btnAddRecord");
+        Button button = sender as Button;
+        String url = "addrecord.aspx?id=" + button.CommandArgument.ToString();
+        Response.Redirect(url);
+    }
+
+
+    protected void gvPatient_RowCommand(object sender, GridViewCommandEventArgs e)
+    {
+        String url = "addrecord.aspx?id=" + e.CommandArgument.ToString();
+        Response.Redirect(url);
+    }
 }
 
 //to read value from session variable: kelangan muna magcast Label1.Text = (string)Session["username"]

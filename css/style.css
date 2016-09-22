@@ -13,6 +13,11 @@ body {
 	padding: 5px 0px;
 }
 
+.remove-padding{
+  padding: 0px;
+  padding-top: 100px;
+}
+
 /*Override navbar margin-bottom to 0*/
 .navbar {
 	margin-bottom: 0px;
@@ -208,3 +213,11 @@ body {
 }
 
 
+/*===============ABOUT*/
+.image-size{
+  width: 100%;
+}
+
+.blacback{
+  background-color: black;
+}

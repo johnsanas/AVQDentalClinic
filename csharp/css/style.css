@@ -487,4 +487,71 @@ body {
   filter:grayscale(10px);
 }
 
-/*==============ADMIN HOME*/
+/*==============LANDING PAGE*/
+
+.nav-header-color{
+  background-color: #1b82b8;
+}
+
+
+
+/*==============ADMIN DASHBOARDS PAGE*/
+.doctor-box{
+  background-color: #269cda;
+  color: white;
+}
+.doctor-notif{
+  font-size: 2.5em;
+}
+.doctor-label{
+  padding-top: 15px;
+}
+
+.add-margin-left{
+  margin: 0px 5px;
+}
+
+.staff-box{
+  background-color: #9972B5;
+  color: white;
+}
+
+.patient-box{
+  background-color: #f4786e;
+  color: white;
+}
+
+.payment-box{
+  background-color: #2293cf;
+  color: white;
+  margin-top: 20px;
+}
+
+.appointment-box{
+  background-color: #8459A4;
+  color: white;
+  margin-top: 20px;
+}
+
+.activity-box{
+  background-color: #d45d53;
+  color: white;
+  margin-top: 20px;
+}
+
+.category-box{
+  background-color: #1879ad;
+  color: white;
+  margin-top: 20px;
+}
+
+
+
+/*==============ADMIN PATIENT PAGE*/
+.dropDown{
+  width: 80px;
+}
+
+.search-left{
+  margin-left: 1090px;
+}
