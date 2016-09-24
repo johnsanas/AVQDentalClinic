@@ -10,7 +10,7 @@ using System.Web;
 public class Resources_Text
 {
 
-    public static string ConnectionString = "Database=avq;Data Source=localhost; User Id=root;Password=localhost@@";
+    public static string ConnectionString = "Database=avq;Data Source=localhost; User Id=root;Password=";
 
     public static void QuerySender(string qry)
     {
@@ -21,7 +21,6 @@ public class Resources_Text
             com.ExecuteNonQuery();
         }
     }
-
     //
     // TODO: Add constructor logic here
     //
