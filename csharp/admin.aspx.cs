@@ -202,6 +202,12 @@ public partial class admin : System.Web.UI.Page
         Response.Redirect(url);
     }
 
+    protected void btnViewRecordClick(object sender, EventArgs e) {
+        Button button = sender as Button;
+        String url = "viewrecords.aspx?id=" + button.CommandArgument.ToString();
+        Response.Redirect(url);
+    }
+
 
     protected void gvPatient_RowCommand(object sender, GridViewCommandEventArgs e)
     {

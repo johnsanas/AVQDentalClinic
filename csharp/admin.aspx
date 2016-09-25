@@ -217,7 +217,7 @@
                                 </EditItemTemplate>
                             </asp:TemplateField>
 
-                            <asp:TemplateField>
+                            <asp:TemplateField HeaderText="Action">
                                 <ItemTemplate>
                                     <asp:Button class="btn btn-default" ID="btnEdit" runat ="server" ToolTip ="Edit Details" Text ='Edit' CommandName="Edit"/>
                                 </ItemTemplate>
@@ -227,9 +227,10 @@
                                 </EditItemTemplate>
                             </asp:TemplateField>
 
-                            <asp:TemplateField>
+                            <asp:TemplateField HeaderText="Record">
                                 <ItemTemplate>
-                                    <asp:Button class="btn btn-success" ID="btnAddRecordxx" runat="server" CommandArgument='<%# Eval("id") %>' Text="Add Record" OnClick="btnAddRecordClick"/>
+                                    <asp:Button class="btn btn-success" ID="btnViewRecords" runat="server" CommandArgument='<%# Eval("id") %>' Text="View" OnClick="btnViewRecordClick"/>
+                                    <asp:Button class="btn btn-success" ID="btnAddRecordxx" runat="server" CommandArgument='<%# Eval("id") %>' Text="Add" OnClick="btnAddRecordClick"/>
                                 </ItemTemplate>
                                 <EditItemTemplate>
                                     
