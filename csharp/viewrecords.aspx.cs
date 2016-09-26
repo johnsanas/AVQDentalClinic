@@ -25,8 +25,7 @@ public partial class viewrecords : System.Web.UI.Page
                     patient_id = Convert.ToInt32(Request.QueryString["id"]);
                     PopulateGridView(gvRecords);
                     Label1.Text = "gumana";
-                }
-                
+                }   
             }
         }
     }

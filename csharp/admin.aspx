@@ -71,7 +71,7 @@
                                     <li><a href="#"><i class="fa fa-envelope-o"></i>Messages</a></li>
                                     -->
                                     <%--<li><a href="#"><i class="fa fa-power-off"></i>Logout</a></li>--%>
-                                    <li><a href="#"><i class="fa fa-power-off"></i>
+                                    <li><a href="index.aspx?logout=true"><i class="fa fa-power-off"></i>
                                         <asp:Label ID="lblLogout" runat="server" Text="Logout"></asp:Label></a></li>
                                     </ul>
                             </li>
@@ -92,7 +92,7 @@
                             Navigation
                         </li>
                         <li>
-                            <a href="admin.aspx">
+                            <a href="dashboard.aspx">
                                 <i class="fa fa-dashboard"></i>
                                 <span>Dashboard</span>
                                 <span class="label label-primary label-circle pull-right">10</span>
@@ -102,8 +102,15 @@
                         <li class="active">
                             <a href="#" class="dropdown-toggle">
                                 <i class="fa fa-table"></i>
-                                <span>Record Management</span>
+                                <span>Patients</span>
                             <i class="fa fa-angle-right drop-icon"></i>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+
+                            <span>Staff</span>
                             </a>
                         </li>
 
@@ -123,9 +130,9 @@
                             <div class="pull-left">
                                 <ol class="breadcrumb">
                                 <li><a href="#">Home</a></li>
-                                <li class="active"><span>Record Management</span></li>
+                                <li class="active"><span>Patients</span></li>
                                 </ol>
-                                <h1>Record Management</h1>
+                                <h1>Patients</h1>
                             </div>
                         </div>
                     </div>
@@ -135,9 +142,26 @@
 
         <div class="row">
             <form id="form1" runat="server">
-        
-                <div class="col-md-12"></div>
+                <%--MODAL--%>
+                <div id="modal_addPatient" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <span class="modal-title">PATIENT</span>
+                            </div>
+                            <div class="modal-body">
+                                Some text in the modal
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <%--END MODAL--%>
+                <%--<div class="col-md-12"></div>--%>
                     <div>
+                        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modal_addPatient">Add Patient</button>
                         <asp:Button ID="btnAddPatient" runat="server" Text="Add Patient" onClick ="Click_AddPatient"/>
                         <asp:Button ID="btnLogout" runat="server" Text="Logout" OnClick ="Click_btnLogout" />
                     </div>
@@ -243,9 +267,9 @@
         </div>
     </div>
 
-    <script src="js/jquery.js"></script>
+    <script src="js/jquery-3.1.0.min.js"></script>
     <script src="js/bootstrap.js"></script>
-    <script src="js/scripts.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
 <%--may bug sa edit mode kung saan pagkaenter magllogout na ung system

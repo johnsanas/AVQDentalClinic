@@ -12,7 +12,6 @@ public partial class admin : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        
         if(!IsPostBack) {
             if (Session["username"] == null)
             {
@@ -20,8 +19,7 @@ public partial class admin : System.Web.UI.Page
             }
 
             btnLogout.Text = "(" + (string)Session["username"] + ") Logout";
-            lblUserName.Text =  (string)Session["username"]  ;
-
+            lblUserName.Text =  (string)Session["username"];
 
             PopulateGridView(gvPatient);
         }

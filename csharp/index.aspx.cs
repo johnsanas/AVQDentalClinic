@@ -11,8 +11,12 @@ using MySql.Data.MySqlClient;
 public partial class index : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
-    {
-
+    {  
+        if (Request.QueryString["logout"] == "true")
+        {
+            Session.Abandon();
+            Response.Redirect("index.aspx");
+        }
     }
 
     public void Click(object sender, EventArgs e)
