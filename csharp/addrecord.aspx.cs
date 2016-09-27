@@ -40,7 +40,6 @@ public partial class addrecord : System.Web.UI.Page
             MySqlDataAdapter da = new MySqlDataAdapter(cmd);
             da.Fill(ds);
         }
-
         return ds;
     }
 

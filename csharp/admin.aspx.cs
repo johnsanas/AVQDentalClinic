@@ -12,7 +12,6 @@ public partial class admin : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        
         if(!IsPostBack) {
             if (Session["username"] == null)
             {
@@ -20,8 +19,7 @@ public partial class admin : System.Web.UI.Page
             }
 
             btnLogout.Text = "(" + (string)Session["username"] + ") Logout";
-            lblUserName.Text =  (string)Session["username"]  ;
-
+            lblUserName.Text =  (string)Session["username"];
 
             PopulateGridView(gvPatient);
         }
@@ -199,6 +197,12 @@ public partial class admin : System.Web.UI.Page
         //Button button = (Button)gvPatient.FindControl("btnAddRecord");
         Button button = sender as Button;
         String url = "addrecord.aspx?id=" + button.CommandArgument.ToString();
+        Response.Redirect(url);
+    }
+
+    protected void btnViewRecordClick(object sender, EventArgs e) {
+        Button button = sender as Button;
+        String url = "viewrecords.aspx?id=" + button.CommandArgument.ToString();
         Response.Redirect(url);
     }
 

@@ -6,23 +6,23 @@
 <head runat="server">
     <title>Admin Dashboard | AVQ Dental Clinic</title>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
     <link rel="stylesheet" type="text/css" href="css/theme_styles.css"/>
     <!--<link rel="stylesheet" type="text/css" href="css/font-awesome.css"/>-->
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
 
     <script type="text/javascript" src="../js/bootstrap.js"></script>
     <script src="../js/jquery-3.1.0.min.js"></script>
 
 </head>
 <body>
-    <div>
+    <%--<div>--%>
         <header class="navbar" id="header-navbar">
             <div class="container">
-                <a href="index.html" id="logo" class="navbar-brand text-center">
+                <a href="admin.aspx" id="logo" class="navbar-brand text-center">
                     
                     AVQ Dental Clinic
                 </a>
@@ -62,7 +62,7 @@
                             <li class="dropdown profile-dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <!--<img src="img/samples/scarlet-159.png" alt=""/>-->
-                                <span class="hidden-xs">Hello, <asp:Label ID="lblUserName" runat="server"></asp:Label></span> <b class="caret"></b>
+                                <span class="hidden-xs">Hello, <asp:Label ID="lblUserName" runat="server"></asp:Label></span><b class="caret"></b>
                                 </a>
                                     <ul class="dropdown-menu">
                                     <!--
@@ -70,10 +70,11 @@
                                     <li><a href="#"><i class="fa fa-cog"></i>Settings</a></li>
                                     <li><a href="#"><i class="fa fa-envelope-o"></i>Messages</a></li>
                                     -->
-                                    <li><a href="#"><i class="fa fa-power-off"></i>Logout</a></li>
-                                </ul>
+                                    <%--<li><a href="#"><i class="fa fa-power-off"></i>Logout</a></li>--%>
+                                    <li><a href="index.aspx?logout=true"><i class="fa fa-power-off"></i>
+                                        <asp:Label ID="lblLogout" runat="server" Text="Logout"></asp:Label></a></li>
+                                    </ul>
                             </li>
-
                         </ul>
                     </div>
                 </div>
@@ -91,7 +92,7 @@
                             Navigation
                         </li>
                         <li>
-                            <a href="index.html">
+                            <a href="dashboard.aspx">
                                 <i class="fa fa-dashboard"></i>
                                 <span>Dashboard</span>
                                 <span class="label label-primary label-circle pull-right">10</span>
@@ -101,8 +102,15 @@
                         <li class="active">
                             <a href="#" class="dropdown-toggle">
                                 <i class="fa fa-table"></i>
-                                <span>Record Management</span>
+                                <span>Patients</span>
                             <i class="fa fa-angle-right drop-icon"></i>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+
+                            <span>Staff</span>
                             </a>
                         </li>
 
@@ -122,9 +130,9 @@
                             <div class="pull-left">
                                 <ol class="breadcrumb">
                                 <li><a href="#">Home</a></li>
-                                <li class="active"><span>Record Management</span></li>
+                                <li class="active"><span>Patients</span></li>
                                 </ol>
-                                <h1>Record Management</h1>
+                                <h1>Patients</h1>
                             </div>
                         </div>
                     </div>
@@ -134,9 +142,26 @@
 
         <div class="row">
             <form id="form1" runat="server">
-        
-                <div class="col-md-12"></div>
+                <%--MODAL--%>
+                <div id="modal_addPatient" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <span class="modal-title">PATIENT</span>
+                            </div>
+                            <div class="modal-body">
+                                Some text in the modal
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <%--END MODAL--%>
+                <%--<div class="col-md-12"></div>--%>
                     <div>
+                        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modal_addPatient">Add Patient</button>
                         <asp:Button ID="btnAddPatient" runat="server" Text="Add Patient" onClick ="Click_AddPatient"/>
                         <asp:Button ID="btnLogout" runat="server" Text="Logout" OnClick ="Click_btnLogout" />
                     </div>
@@ -216,7 +241,7 @@
                                 </EditItemTemplate>
                             </asp:TemplateField>
 
-                            <asp:TemplateField>
+                            <asp:TemplateField HeaderText="Action">
                                 <ItemTemplate>
                                     <asp:Button class="btn btn-default" ID="btnEdit" runat ="server" ToolTip ="Edit Details" Text ='Edit' CommandName="Edit"/>
                                 </ItemTemplate>
@@ -226,119 +251,25 @@
                                 </EditItemTemplate>
                             </asp:TemplateField>
 
+                            <asp:TemplateField HeaderText="Record">
+                                <ItemTemplate>
+                                    <asp:Button class="btn btn-success" ID="btnViewRecords" runat="server" CommandArgument='<%# Eval("id") %>' Text="View" OnClick="btnViewRecordClick"/>
+                                    <asp:Button class="btn btn-success" ID="btnAddRecordxx" runat="server" CommandArgument='<%# Eval("id") %>' Text="Add" OnClick="btnAddRecordClick"/>
+                                </ItemTemplate>
+                                <EditItemTemplate>
+                                    
+                                </EditItemTemplate>
+                        </asp:TemplateField>
+
                         </Columns>
                     </asp:GridView>
-
             </form>
         </div>
     </div>
 
-    <script src="js/jquery.js"></script>
+    <script src="js/jquery-3.1.0.min.js"></script>
     <script src="js/bootstrap.js"></script>
-    <script src="js/scripts.js"></script>
-</body>
-
-
-<body>
-
-<<<<<<< HEAD
-=======
-        <asp:GridView ID="gvPatient" runat="server" AutoGenerateColumns ="false" CellPadding="5" OnRowEditing ="gvPatient_RowEditing" OnRowCancelingEdit="gvPatient_RowCancellingEdit" OnRowUpdating="gvPatient_RowUpdating" OnRowDataBound="gvPatient_RowDataBound" OnRowDelete ="gvPatient_RowDelete">
-            <Columns>
-                <asp:TemplateField HeaderText ="First Name">
-                    <ItemTemplate>
-                        <asp:Label ID="lblFirstName" runat="server" Text='<%# Eval("first_name") %>'></asp:Label>
-                    </ItemTemplate>
-                    <EditItemTemplate>
-                        <asp:Label ID="e_lblPatientID" runat ="server" Text ='<%# Eval("id") %>' Visible="false"/>
-                        <asp:TextBox ID ="e_txtFirstName" runat ="server" Text = '<%# Eval("first_name") %>'></asp:TextBox>
-                    </EditItemTemplate>
-                </asp:TemplateField>
-
-                <asp:TemplateField HeaderText ="Middle Name">
-                     <ItemTemplate>
-                        <asp:Label ID="lblMiddleName" runat ="server" Text='<%# Eval("middle_name") %>'></asp:Label>
-                     </ItemTemplate>
-                     <EditItemTemplate>
-                        <asp:TextBox ID ="e_txtMiddleName" runat ="server" Text ='<%# Eval("middle_name") %>'></asp:TextBox>
-                     </EditItemTemplate>
-                </asp:TemplateField>
-
-                <asp:TemplateField HeaderText ="Last Name">
-                     <ItemTemplate>
-                        <asp:Label ID="lblLastName" runat ="server" Text='<%# Eval("last_name") %>'></asp:Label>
-                     </ItemTemplate>
-                     <EditItemTemplate>
-                        <asp:TextBox ID ="e_txtLastName" runat="server" Text ='<%# Eval("last_name") %>'></asp:TextBox>
-                     </EditItemTemplate>
-                </asp:TemplateField>
-
-                <asp:TemplateField HeaderText ="Address">
-                     <ItemTemplate>
-                        <asp:Label ID="lblAddress" runat ="server" Text ='<%# Eval("address") %>'></asp:Label>
-                     </ItemTemplate>
-                     <EditItemTemplate>
-                        <asp:TextBox ID="e_txtAddress" runat ="server" Text='<%# Eval("address") %>'></asp:TextBox>
-                     </EditItemTemplate>
-                </asp:TemplateField>
-
-                <asp:TemplateField HeaderText ="Contact Number">
-                    <ItemTemplate>
-                        <asp:Label ID="lblContactNo" runat ="server" Text='<%# Eval("contact_number") %>'></asp:Label>
-                    </ItemTemplate>
-                    <EditItemTemplate>
-                        <asp:TextBox ID ="e_txtContactNo" runat ="server" Text='<%# Eval("contact_number") %>'></asp:TextBox>
-                    </EditItemTemplate>
-                </asp:TemplateField>
-
-                <%--<asp:TemplateField Headertext ="Birthday">
-                    <ItemTemplate>
-                        <asp:Label ID="lblBirthday" runat="server" Text='<%# Eval("birthday") %>'></asp:Label>
-                    </ItemTemplate>
-                    <EditItemTemplate>
-                        <asp:TextBox ID ="e_txtBirthday" runat ="server" text='<%# Eval("birthday") %>'></asp:TextBox>
-                    </EditItemTemplate>
-                </asp:TemplateField>--%>
-
-                <asp:TemplateField HeaderText ="Status">
-                    <ItemTemplate>
-                        <asp:Label ID="lblStatus" runat="server" Text ='<%# Eval("status") %>'></asp:Label>
-                    </ItemTemplate>
-                    <EditItemTemplate>
-                        <asp:TextBox ID="e_txtStatus" runat="server" Text='<%# Eval("status") %>'></asp:TextBox>
-                    </EditItemTemplate>
-                </asp:TemplateField>
-
-                <asp:TemplateField HeaderText ="Occupation">
-                    <ItemTemplate>
-                        <asp:Label ID="lblOccupation" runat ="server" Text='<%# Eval("occupation") %>'></asp:Label>
-                    </ItemTemplate>
-                    <EditItemTemplate>
-                        <asp:TextBox id="e_txtOccupation" runat="server" Text='<%# Eval("occupation") %>'></asp:TextBox>
-                    </EditItemTemplate>
-                </asp:TemplateField>
-
-                <asp:TemplateField>
-                    <ItemTemplate>
-                        <asp:Button ID="btnEdit" runat ="server" ToolTip ="Edit Details" Text ='Edit' CommandName="Edit"/>
-                    </ItemTemplate>
-                    <EditItemTemplate>
-                        <asp:Button ID="btnUpdate" runat="server" ToolTip="Update" Text="Update" CommandName ="Update"/>
-                        <asp:Button ID="btnCancel" runat ="server" ToolTip="Cancel" Text='Cancel' CommandName="Cancel"/>
-                    </EditItemTemplate>
-                </asp:TemplateField>
-
-                <asp:TemplateField>
-                    <ItemTemplate>
-                        <asp:Button ID="btnAddRecordxx" runat="server" CommandArgument='<%# Eval("id") %>' Text="Add Record" OnClick="btnAddRecordClick"/>
-                    </ItemTemplate>
-                </asp:TemplateField>
-
-            </Columns>
-        </asp:GridView>
-
-    </form>
->>>>>>> 92ec71264a7f4b455023118da5a7595f89d11b2f
+    <script src="js/script.js"></script>
 </body>
 </html>
 <%--may bug sa edit mode kung saan pagkaenter magllogout na ung system
