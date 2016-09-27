@@ -147,12 +147,46 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <span class="modal-title">PATIENT</span>
+                                <span class="modal-title">ADD PATIENT</span>
                             </div>
                             <div class="modal-body">
-                                Some text in the modal
+                                <table border="1">
+                                    <tr>
+                                        <td>First Name</td>
+                                        <td><asp:TextBox ID="add_txtFirstName" runat="server"></asp:TextBox></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Middle Name</td>
+                                        <td><asp:TextBox ID="add_txtMiddleName" runat="server"></asp:TextBox></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Last Name</td>
+                                        <td><asp:TextBox ID="add_txtLastName" runat="server"></asp:TextBox></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Address</td>
+                                        <td><asp:TextBox ID="add_txtAddress" runat="server"></asp:TextBox></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Contact Number</td>
+                                        <td><asp:TextBox ID="add_txtContactNo" runat="server"></asp:TextBox></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Birthday</td>
+                                        <td><asp:TextBox ID="add_txtBirthday" runat="server"></asp:TextBox></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Status</td>
+                                        <td><asp:TextBox ID="add_txtStatus" runat="server"></asp:TextBox></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Occupation</td>
+                                        <td><asp:TextBox ID="add_txtOccupation" runat="server"></asp:TextBox></td>
+                                    </tr>
+                                </table>
                             </div>
                             <div class="modal-footer">
+                                <asp:Button ID="modal_btnAddPatient" runat="server" Text="Add Patient" class="btn btn-default" OnClick="modal_btnAddPatient_Click"/>
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                             </div>
                         </div>
@@ -162,7 +196,7 @@
                 <%--<div class="col-md-12"></div>--%>
                     <div>
                         <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modal_addPatient">Add Patient</button>
-                        <asp:Button ID="btnAddPatient" runat="server" Text="Add Patient" onClick ="Click_AddPatient"/>
+
                         <asp:Button ID="btnLogout" runat="server" Text="Logout" OnClick ="Click_btnLogout" />
                     </div>
 
