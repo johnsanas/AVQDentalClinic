@@ -88,8 +88,7 @@ public partial class admin_addpatient : System.Web.UI.Page
 
         
     }
-    public void WarningLabel(Label label, string label_name)
-    {
+    public void WarningLabel(Label label, string label_name){
         label.Text = label_name + " (Please fill out this field)";
         label.ForeColor = System.Drawing.Color.Red;
     }

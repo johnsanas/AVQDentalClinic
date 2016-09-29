@@ -20,7 +20,6 @@ public partial class admin : System.Web.UI.Page
 
             btnLogout.Text = "(" + (string)Session["username"] + ") Logout";
             lblUserName.Text =  (string)Session["username"];
-
             PopulateGridView(gvPatient);
         }
     }
@@ -142,11 +141,6 @@ public partial class admin : System.Web.UI.Page
         }
     }
 
-    protected void SampleDataBound(object sender, GridViewRowEventArgs e) {
-        btnAddPatient.Text = e.Row.RowIndex.ToString();
-        e.Row.RowIndex.ToString();
-    }
-
     protected void gvPatient_RowUpdating(object sender, GridViewUpdateEventArgs e) {
         GridView gv = sender as GridView;
 
@@ -206,11 +200,31 @@ public partial class admin : System.Web.UI.Page
         Response.Redirect(url);
     }
 
-
     protected void gvPatient_RowCommand(object sender, GridViewCommandEventArgs e)
     {
         String url = "addrecord.aspx?id=" + e.CommandArgument.ToString();
         Response.Redirect(url);
+    }
+
+    protected void modal_btnAddPatient_Click(object sender, EventArgs e)
+    {
+        string first_name = add_txtFirstName.Text.ToString();
+        string middle_name = add_txtMiddleName.Text.ToString();
+        string last_name = add_txtLastName.Text.ToString();
+        string address = add_txtAddress.Text.ToString();
+        string contact_number = add_txtContactNo.Text.ToString();
+        string birthday = add_txtBirthday.Text;
+        string status = add_txtStatus.Text.ToString();
+        string occupation = add_txtOccupation.Text.ToString();
+
+        string qry = "insert into patient (first_name,middle_name,last_name,address,contact_number,status,occupation) values('" + first_name + "','" + middle_name + "','" + last_name + "','" + address + "','" + contact_number + "','" + status + "','" + occupation + "')";
+        using (MySqlConnection con = new MySqlConnection(Resources_Text.ConnectionString)) {
+            con.Open();
+            MySqlCommand com = new MySqlCommand(qry, con);
+            com.ExecuteNonQuery();
+        }
+
+        Response.Redirect("gumana");
     }
 }
 
