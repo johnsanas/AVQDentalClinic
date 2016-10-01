@@ -23,7 +23,6 @@
         <header class="navbar" id="header-navbar">
             <div class="container">
                 <a href="admin.aspx" id="logo" class="navbar-brand text-center">
-                    
                     AVQ Dental Clinic
                 </a>
                 <div class="clearfix">
