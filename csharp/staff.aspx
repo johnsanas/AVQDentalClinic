@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="viewrecords.aspx.cs" Inherits="viewrecords" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="staff.aspx.cs" Inherits="staff" %>
 
 <!DOCTYPE html>
 
@@ -17,7 +17,7 @@
     <script src="../js/jquery-3.1.0.min.js"></script>
 </head>
 <body>
-<%--<div>--%>
+ <%--<div>--%>
         <header class="navbar" id="header-navbar">
             <div class="container">
                 <a href="admin.aspx" id="logo" class="navbar-brand text-center">
@@ -96,7 +96,7 @@
                             </a>
                         </li>
 
-                        <li class="active">
+                        <li>
                             <a href="admin.aspx" class="dropdown-toggle">
                                 <i class="fa fa-table"></i>
                                 <span>Patients</span>
@@ -104,8 +104,8 @@
                             </a>
                         </li>
 
-                        <li>
-                            <a href="#">
+                        <li class="active">
+                            <a href="staff.aspx">
 
                             <span>Staff</span>
                             </a>
@@ -127,9 +127,9 @@
                             <div class="pull-left">
                                 <ol class="breadcrumb">
                                 <li><a href="#">Home</a></li>
-                                <li class="active"><span>View Records</span></li>
+                                <li class="active"><span>Staff</span></li>
                                 </ol>
-                                <h1>View Records</h1>
+                                <h1>Staff</h1>
                             </div>
                         </div>
                     </div>
@@ -137,44 +137,64 @@
             </div>
         </div>
 
-    <form id="form1" runat="server">
-    VIEW RECORDS<asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-    <br /><br />
-    <div>
-        <asp:GridView class="table table-hover" ID="gvRecords" runat="server" AutoGenerateColumns="false">
-            <Columns>
-                <asp:TemplateField HeaderText="Service">
-                    <ItemTemplate>
-                        <asp:Label ID="lblService" runat="server" Text ='<%# Eval("service_id") %>'></asp:Label>
-                    </ItemTemplate>
-                </asp:TemplateField>
-                
-                <asp:TemplateField HeaderText="Dentist">
-                    <ItemTemplate>
-                        <asp:Label ID="lblDentist" runat="server" Text ='<%# Eval("staff_id") %>'></asp:Label>
-                    </ItemTemplate>
-                </asp:TemplateField>
+        <div class="row">
+            <form id="form1" runat="server">
+                <asp:GridView class="table table-hover" ID="gvStaff" runat="server" AutoGenerateColumns ="false" CellPadding="5" OnRowEditing="gvStaff_RowEditing" OnRowCancelingEdit="gvStaff_RowCancelingEdit" OnRowUpdating="gvStaff_RowUpdating">
+                      <Columns>
+                        <asp:TemplateField HeaderText="Last Name">
+                            <ItemTemplate>
+                                <asp:Label ID="lblLastName" runat="server" Text='<%# Eval("last_name") %>'></asp:Label>
+                            </ItemTemplate>
+                            <EditItemTemplate>
+                                <asp:HiddenField ID="e_hdnStaffID" runat="server" Value='<%# Eval("id") %>'></asp:HiddenField>
+                                <asp:TextBox ID="e_txtLastName" runat="server" Text='<%# Eval("last_name") %>'></asp:TextBox>
+                            </EditItemTemplate>
+                        </asp:TemplateField>
+                        
+                        <asp:TemplateField HeaderText="First Name">
+                            <ItemTemplate>
+                                <asp:Label ID="lblFirstName" runat="server" Text='<%# Eval("middle_name") %>'></asp:Label>
+                            </ItemTemplate>
+                            <EditItemTemplate>
+                                <asp:TextBox ID="e_txtFirstName" runat="server" Text='<%# Eval("middle_name") %>'></asp:TextBox>
+                            </EditItemTemplate>
+                        </asp:TemplateField>
 
-                <asp:TemplateField HeaderText="Title">
-                    <ItemTemplate>
-                        <asp:Label ID="lblTitle" runat="server" Text ='<%# Eval("title") %>'></asp:Label>
-                    </ItemTemplate>
-                </asp:TemplateField>
+                        <asp:TemplateField HeaderText="MiddleName">
+                            <ItemTemplate>
+                                <asp:Label ID="lblMiddleName" runat="server" Text='<%# Eval("middle_name") %>'></asp:Label>
+                            </ItemTemplate>
+                            <EditItemTemplate>
+                                <asp:TextBox ID="e_txtMiddleName" runat="server" Text='<%# Eval("middle_name") %>'></asp:TextBox>
+                            </EditItemTemplate>
+                        </asp:TemplateField>
 
-                <asp:TemplateField HeaderText="Description">
-                    <ItemTemplate>
-                        <asp:Label ID="lblDescription" runat="server" Text ='<%# Eval("description") %>'></asp:Label>
-                    </ItemTemplate>
-                </asp:TemplateField>
+                        <asp:TemplateField HeaderText ="Position">
+                            <ItemTemplate>
+                                <asp:Label ID="lblPosition" runat="server" Text='<%# Eval("position") %>'></asp:Label>
+                            </ItemTemplate>
+                            <EditItemTemplate>
+                                <asp:TextBox ID="e_txtPosition" runat="server" Text='<%# Eval("position") %>'></asp:TextBox>
+                            </EditItemTemplate>
+                        </asp:TemplateField>
 
-                <asp:TemplateField HeaderText="Date and Time">
-                    <ItemTemplate>
-                        <asp:Label ID="lblDateandTime" runat="server" Text ='<%# Eval("date_time") %>'></asp:Label>
-                    </ItemTemplate>
-                </asp:TemplateField>
-            </Columns>
-        </asp:GridView>
+                        <asp:TemplateField HeaderText="Action">
+                            <ItemTemplate>
+                                <asp:Button ID="btnEdit" runat="server" ToolTip="Edit" Text="Edit" CommandName="Edit"/>
+                            </ItemTemplate>
+                            <EditItemTemplate>
+                                <asp:Button ID="btnUpdate" runat="server" Text="Update" ToolTip ="Update" CommandName="Update"/>
+                                <asp:Button ID="btnCancel" runat="server" Text="Cancel" ToolTip="Cancel" CommandName="Cancel"/>
+                            </EditItemTemplate>
+                        </asp:TemplateField>
+                      </Columns>
+                </asp:GridView>
+            </form>
+        </div>
     </div>
-    </form>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/scripts.js"></script>
 </body>
 </html>

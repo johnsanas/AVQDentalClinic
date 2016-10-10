@@ -107,8 +107,7 @@
                         </li>
 
                         <li>
-                            <a href="#">
-
+                            <a href="staff.aspx">
                             <span>Staff</span>
                             </a>
                         </li>
@@ -128,7 +127,7 @@
                         <div id="content-header" class="clearfix">
                             <div class="pull-left">
                                 <ol class="breadcrumb">
-                                <li><a href="#">Home</a></li>
+                                <li><a href="">Home</a></li>
                                 <li class="active"><span>Patients</span></li>
                                 </ol>
                                 <h1>Patients</h1>
@@ -152,7 +151,9 @@
                                 <table border="1">
                                     <tr>
                                         <td>First Name</td>
-                                        <td><asp:TextBox ID="add_txtFirstName" runat="server"></asp:TextBox></td>
+                                        <td><asp:TextBox ID="add_txtFirstName" runat="server"></asp:TextBox>
+<%--                                        <asp:RequiredFieldValidator ID="req_add_txtFirstName" runat="server" ControlToValidate="add_txtFirstName" Text="First name is empty"></asp:RequiredFieldValidator>--%>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>Middle Name</td>
@@ -192,13 +193,15 @@
                     </div>
                 </div>
                 <%--END MODAL--%>
+
+
                 <%--<div class="col-md-12"></div>--%>
                     <div>
                         <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modal_addPatient">Add Patient</button>
 
                         <asp:Button ID="btnLogout" runat="server" Text="Logout" OnClick ="Click_btnLogout" />
                     </div>
-
+                    <br />
                     <asp:GridView class="table table-hover" ID="gvPatient" runat="server" AutoGenerateColumns ="false" CellPadding="5" OnRowEditing ="gvPatient_RowEditing" OnRowCancelingEdit="gvPatient_RowCancellingEdit" OnRowUpdating="gvPatient_RowUpdating" OnRowDataBound="gvPatient_RowDataBound">
                         <Columns>
                             <asp:TemplateField HeaderText ="First Name">
@@ -278,6 +281,7 @@
                                 <ItemTemplate>
                                     <asp:Button class="btn btn-default" ID="btnEdit" runat ="server" ToolTip ="Edit Details" Text ='Edit' CommandName="Edit"/>
                                 </ItemTemplate>
+
                                 <EditItemTemplate>
                                     <asp:Button class="btn btn-info" ID="btnUpdate" runat="server" ToolTip="Update" Text="Update" CommandName ="Update"/>
                                     <asp:Button class="btn btn-danger" ID="btnCancel" runat ="server" ToolTip="Cancel" Text='Cancel' CommandName="Cancel"/>

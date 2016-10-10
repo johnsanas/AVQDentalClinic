@@ -27,7 +27,8 @@ public partial class index : System.Web.UI.Page
         //experiment
         using (MySqlConnection con = new MySqlConnection(Resources_Text.ConnectionString)) {
             con.Open();
-            string query = "SELECT * FROM sample WHERE username='" + username + "' AND password='" + password + "'";
+            //string query = "SELECT * FROM sample WHERE username='" + username + "' AND password='" + password + "'";
+            string query = "SELECT * FROM users WHERE username='" + username + "' AND password='" + password + "'";
             MySqlCommand q_command = new MySqlCommand(query, con);
             MySqlDataReader reader = q_command.ExecuteReader();
 

@@ -224,7 +224,7 @@ public partial class admin : System.Web.UI.Page
             com.ExecuteNonQuery();
         }
 
-        Response.Redirect("gumana");
+        Response.Redirect("admin.aspx");
     }
 }
 
