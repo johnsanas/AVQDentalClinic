@@ -19,6 +19,7 @@ public class Resources_Text
             con.Open();
             MySqlCommand com = new MySqlCommand(qry, con);
             com.ExecuteNonQuery();
+            con.Close();
         }
     }
     //

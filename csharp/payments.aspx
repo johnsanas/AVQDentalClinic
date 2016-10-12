@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="dashboard.aspx.cs" Inherits="dashboard" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="payments.aspx.cs" Inherits="payments" %>
 
 <!DOCTYPE html>
 
@@ -17,6 +17,7 @@
     <script src="../js/jquery-3.1.0.min.js"></script>
 </head>
 <body>
+<form id="form1" runat="server">
     <%--<div>--%>
         <header class="navbar" id="header-navbar">
             <div class="container">
@@ -88,7 +89,7 @@
                         <li class="nav-header nav-header-first hidden-sm hidden-xs">
                             Navigation
                         </li>
-                        <li class="active">
+                        <li>
                             <a href="dashboard.aspx">
                                 <i class="fa fa-dashboard"></i>
                                 <span>Dashboard</span>
@@ -111,7 +112,7 @@
                             </a>
                         </li>
 
-                        <li>
+                        <li class="active">
                             <a href="payments.aspx">
 
                             <span>Payments</span>
@@ -134,72 +135,97 @@
                             <div class="pull-left">
                                 <ol class="breadcrumb">
                                 <li><a href="#">Home</a></li>
-                                <li class="active"><span>Dashboard</span></li>
+                                <li class="active"><span>Payments</span></li>
                                 </ol>
-                                <h1>Dashboard</h1>
+                                <h1>All Payments</h1>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <div class="row">
-            <form id="form1" runat="server">
-                <div class="row">
-                    <div class ="col-md-4" style="">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                Patients
-                            </div>
-                            <div class="panel-body">
-                                100 Patients<br />
-                                Recently added: Katrina Saquilayan
-                            </div>
-                        </div>
-                    </div>
-                    <div class ="col-md-4">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                Medical Records
-                            </div>
-                            <div class="panel-body">
-                                75 records (Average of 3.5 records/patient)<br />
-                                Last inclusion: January 6, 2016 at 01:06
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                Appointments
-                            </div>
-                            <div class="panel-body">
-                                1 Unread<br />
-                                80 Total (Last Appointment submitted by Ms. Saquilayan)
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                Payments
-                            </div>
-                            <div class="panel-body">
-                                P5400.00 Pending<br />
-                                Generated P475,223 last month (Average of 15,840.76/day)
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </form>
+        <div class="row" style="background-color:rgba(0,0,0,0.02)">
+        <table class="table">
+            <tr>
+                <td colspan="2">
+                    <span style="font-size:24px;">Add Payment</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Patient:
+                </td>
+                <td colspan="3">
+                    <asp:DropDownList ID="ddlPatient" runat="server" CssClass="form-control" OnSelectedIndexChanged="ddlPatient_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Payment
+                </td>
+                <td>
+                    <asp:TextBox ID="txtPayment" runat="server" CssClass="form-control" TextMode="Number"></asp:TextBox>
+                </td>
+                <td>
+                    Payment for
+                </td>
+                <td>
+                    <asp:DropDownList ID="ddlPaymentFor" runat="server" CssClass="form-control"></asp:DropDownList>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+<%--                <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#modal_addPayment">Add Payment</button><br />--%>
+                    <asp:Button ID="btnAddPayment" runat="server" Text="Add Payment" class="btn btn-info btn-md" OnClick="btnAddPayment_Click"/>
+                </td>
+            </tr>
+        </table>
         </div>
+        <div class ="row">
+            <div class="col-lg-12">
+                
+                <asp:GridView ID="gvPayments" runat="server" AutoGenerateColumns="false" CellPadding="5">
+                    <Columns>
+                        <asp:TemplateField HeaderText="Patient">
+                            <ItemTemplate>
+                                <asp:Label ID="lblPatientName" runat="server" Text="FULL NAME"></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
+                        <asp:TemplateField HeaderText="Paid Amount">
+                            <ItemTemplate>
+                                <asp:Label ID="lblPaidAmount" runat="server" Text="Paid Amount"></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
+                        <asp:TemplateField HeaderText="Balance">
+                            <ItemTemplate>
+                                <asp:Label ID="lblBalance" runat="server" Text="Balance"></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
+                        <asp:TemplateField HeaderText="Received by">
+                            <ItemTemplate>
+                                <asp:Label ID="lblReceivedBy" runat="server" Text="Received By"></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
+                        <asp:TemplateField HeaderText="Date/Time">
+                            <ItemTemplate>
+                                <asp:Label ID="lblDateTime" runat="server" Text="DateTime"></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                    </Columns>
+                </asp:GridView>
+            </div>
+        </div>
+
+        
     </div>
 
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="js/scripts.js"></script>
+    </form>
 </body>
 </html>

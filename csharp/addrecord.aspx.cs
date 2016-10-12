@@ -56,15 +56,12 @@ public partial class addrecord : System.Web.UI.Page
 
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
-        String user_id = hdnID.Value.ToString();
-        String service_id = ddlServices.SelectedValue.ToString();
-        String description = txtDescription.Text.ToString();
-        String query = "insert into dental_records(patient_id,service_id,description,date_time,staff_id) values('" + user_id+ "','"+ service_id +"','"+ description +"',now(),'"+ Session["username"] +"')";
         double balance = 0, service_price = 0, new_balance = 0;
-        Resources_Text.QuerySender(query);
-        //service_price = Convert.ToDouble(ddlServices.SelectedValue.ToString());
 
-        using (MySqlConnection con = new MySqlConnection(Resources_Text.ConnectionString)){
+        String user_id = hdnID.Value.ToString();
+
+        using (MySqlConnection con = new MySqlConnection(Resources_Text.ConnectionString))
+        {
             con.Open();
             MySqlCommand com = new MySqlCommand("select balance from patient where id=" + hdnID.Value.ToString(), con);
             MySqlDataReader reader1 = com.ExecuteReader();
@@ -80,9 +77,15 @@ public partial class addrecord : System.Web.UI.Page
             service_price = Convert.ToDouble(reader1.GetString(0));
             new_balance = balance + service_price;
         }
+
+        String service_id = ddlServices.SelectedValue.ToString();
+        String description = txtDescription.Text.ToString();
+        String query = "insert into dental_records(patient_id,service_id,description,date_time,staff_id,balance) values('" + user_id+ "','"+ service_id +"','"+ description +"',now(),'"+ Session["username"] +"','"+ service_price +"')";
+        Resources_Text.QuerySender(query);
         
         query = "update patient set balance=" + new_balance + " where id=" + hdnID.Value.ToString();
         Resources_Text.QuerySender(query);
-        Response.Redirect("service_price=" + service_price.ToString() + "balance=" + balance.ToString());
+        
+        Response.Redirect("admin.aspx"); 
     }
 }
