@@ -64,7 +64,8 @@
 						<br> 
 
 						 <form id="form1" runat="server" class="form-inline">
-						  <div class="form-group">
+						  <%--<div class="form-group">--%>
+                          <div class="form-group form-inline">
 						    <label class="sr-only" for="txtUserName">Username:</label>
 						    <%--<input type="text" name="userid" class="form-control" id="userid" placeholder="Username">--%>
                             <asp:TextBox ID="txtUserName" runat="server" class="form-control" placeholder="Username"></asp:TextBox>

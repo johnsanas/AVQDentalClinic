@@ -18,6 +18,7 @@
 </head>
 <body>
 <%--<div>--%>
+<form id="form1" runat="server">
         <header class="navbar" id="header-navbar">
             <div class="container">
                 <a href="admin.aspx" id="logo" class="navbar-brand text-center">
@@ -129,7 +130,7 @@
                                 <li><a href="#">Home</a></li>
                                 <li class="active"><span>View Records</span></li>
                                 </ol>
-                                <h1>View Records</h1>
+                                <h1><asp:Label ID="lblPatient_Name" runat="server" Text="Patient_Name"></asp:Label></h1>
                             </div>
                         </div>
                     </div>
@@ -137,15 +138,14 @@
             </div>
         </div>
 
-    <form id="form1" runat="server">
-    VIEW RECORDS<asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-    <br /><br />
+    <%--<form id="form1" runat="server">--%>
+    <%--VIEW RECORDS<asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>--%>
     <div>
         <asp:GridView class="table table-hover" ID="gvRecords" runat="server" AutoGenerateColumns="false">
             <Columns>
                 <asp:TemplateField HeaderText="Service">
                     <ItemTemplate>
-                        <asp:Label ID="lblService" runat="server" Text ='<%# Eval("service_id") %>'></asp:Label>
+                        <asp:Label ID="lblService" runat="server" Text ='<%# Eval("name") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
                 
