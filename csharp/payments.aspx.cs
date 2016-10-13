@@ -83,33 +83,39 @@ public partial class payments : System.Web.UI.Page
         string dental_record_id = ddlPaymentFor.SelectedValue.ToString();
         double old_balance = 0, new_balance = 0;
 
-        string query = "insert into payments(patient_id,paid,payment_for,user_id,date_time) values("+ patient_id +","+ payment +","+ Convert.ToInt32(dental_record_id) +",0,now())";
-        Resources_Text.QuerySender(query);
-
-        using (MySqlConnection con = new MySqlConnection(Resources_Text.ConnectionString)) {
-            con.Open();
-            MySqlCommand command = new MySqlCommand("select balance from dental_records where id=" + dental_record_id,con);
-            MySqlDataReader reader = command.ExecuteReader();
-
-            reader.Read();
-            old_balance = Convert.ToDouble(reader.GetString(0));
-            reader.Close();
-
-            new_balance = old_balance - Convert.ToDouble(payment);
-            query = "update dental_records set balance=" + new_balance + " where id=" + dental_record_id;
-            Resources_Text.QuerySender(query);
-
-            command.CommandText = "select balance from patient where id=" + patient_id;
-            reader = command.ExecuteReader();
-            reader.Read();
-            old_balance = Convert.ToDouble(reader.GetString(0));
-            reader.Close();
-
-            new_balance = old_balance - Convert.ToDouble(payment);
-            query = "update patient set balance=" + new_balance + " where id=" + patient_id;
-            Resources_Text.QuerySender(query);
-            con.Close();
+        if(Convert.ToInt32(payment) == 0) {
+            Response.Redirect("dashboard.aspx");
         }
+        else {
+            string query = "insert into payments(patient_id,paid,payment_for,user_id,date_time) values(" + patient_id + "," + payment + "," + Convert.ToInt32(dental_record_id) + ",0,now())";
+            Resources_Text.QuerySender(query);
 
+            using (MySqlConnection con = new MySqlConnection(Resources_Text.ConnectionString))
+            {
+                con.Open();
+                MySqlCommand command = new MySqlCommand("select balance from dental_records where id=" + dental_record_id, con);
+                MySqlDataReader reader = command.ExecuteReader();
+
+                reader.Read();
+                old_balance = Convert.ToDouble(reader.GetString(0));
+                reader.Close();
+
+                new_balance = old_balance - Convert.ToDouble(payment);
+                query = "update dental_records set balance=" + new_balance + " where id=" + dental_record_id;
+                Resources_Text.QuerySender(query);
+
+                command.CommandText = "select balance from patient where id=" + patient_id;
+                reader = command.ExecuteReader();
+                reader.Read();
+                old_balance = Convert.ToDouble(reader.GetString(0));
+                reader.Close();
+
+                new_balance = old_balance - Convert.ToDouble(payment);
+                query = "update patient set balance=" + new_balance + " where id=" + patient_id;
+                Resources_Text.QuerySender(query);
+                con.Close();
+            }
+            Response.Redirect("admin.aspx");
+        }
     }
 }

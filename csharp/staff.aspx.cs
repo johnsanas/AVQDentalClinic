@@ -86,4 +86,19 @@ public partial class staff : System.Web.UI.Page
         gv.EditIndex = -1;
         PopulateGridView(gvStaff);
     }
+
+    protected void modal_btnAddStaff_Click(object sender, EventArgs e)
+    {
+        string last_name, first_name, middle_name, position, username, password;
+        last_name = add_txtLastName.Text.ToString();
+        first_name = add_txtFirstName.Text.ToString();
+        middle_name = add_txtMiddleName.Text.ToString();
+        position = add_txtPosition.Text.ToString();
+        username = add_txtUserName.Text.ToString();
+        password = add_txtPassword.Text.ToString();
+
+        string query = "insert into users(last_name,first_name,middle_name,position,username,password) values('"+ last_name +"','"+ first_name +"','"+ middle_name +"','"+ position + "','"+ username +"','"+ password +"')";
+        Resources_Text.QuerySender(query);
+        Response.Redirect("gumana");
+    }
 }

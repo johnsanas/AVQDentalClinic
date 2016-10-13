@@ -146,6 +146,54 @@
 
         <div class="row">
             <form id="form1" runat="server">
+
+                <%--MODAL--%>
+                <div id="modal_addStaff" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <span class="modal-title">ADD STAFF</span>
+                            </div>
+                            <div class="modal-body">
+                                <table border="1">
+                                    <tr>
+                                        <td>Last Name</td>
+                                        <td><asp:TextBox ID="add_txtLastName" runat="server"></asp:TextBox>
+<%--                                        <asp:RequiredFieldValidator ID="req_add_txtFirstName" runat="server" ControlToValidate="add_txtFirstName" Text="First name is empty"></asp:RequiredFieldValidator>--%>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>First Name</td>
+                                        <td><asp:TextBox ID="add_txtFirstName" runat="server"></asp:TextBox></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Middle Name</td>
+                                        <td><asp:TextBox ID="add_txtMiddleName" runat="server"></asp:TextBox></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Position</td>
+                                        <td><asp:TextBox ID="add_txtPosition" runat="server"></asp:TextBox></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Username</td>
+                                        <td><asp:TextBox ID="add_txtUserName" runat="server"></asp:TextBox></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Password</td>
+                                        <td><asp:TextBox ID="add_txtPassword" runat="server" TextMode="Password"></asp:TextBox></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="modal-footer">
+                                <asp:Button ID="modal_btnAddStaff" runat="server" Text="Add Patient" class="btn btn-default" OnClick="modal_btnAddStaff_Click"/>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <%--END MODAL--%>
+                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modal_addStaff">Add Staff</button>
+                <br /><br />
                 <asp:GridView class="table table-hover" ID="gvStaff" runat="server" AutoGenerateColumns ="false" CellPadding="5" OnRowEditing="gvStaff_RowEditing" OnRowCancelingEdit="gvStaff_RowCancelingEdit" OnRowUpdating="gvStaff_RowUpdating">
                       <Columns>
                         <asp:TemplateField HeaderText="Last Name">
