@@ -1,0 +1,1 @@
+Delete mo jan yung grid-skeleton, reset,main
