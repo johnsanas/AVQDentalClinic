@@ -235,10 +235,10 @@
 
                         <asp:TemplateField HeaderText="Action">
                             <ItemTemplate>
-                                <asp:Button ID="btnEdit" runat="server" ToolTip="Edit" Text="Edit" CommandName="Edit"/>
+                                <asp:Button ID="btnEdit" runat="server" ToolTip="Edit" Text="Edit" CommandName="Edit" CssClass="btn btn-warning"/>
                             </ItemTemplate>
                             <EditItemTemplate>
-                                <asp:Button ID="btnUpdate" runat="server" Text="Update" ToolTip ="Update" CommandName="Update"/>
+                                <asp:Button ID="btnUpdate" runat="server" Text="Update" ToolTip ="Update" CommandName="Update" CssClass="btn btn-success"/>
                                 <asp:Button ID="btnCancel" runat="server" Text="Cancel" ToolTip="Cancel" CommandName="Cancel"/>
                             </EditItemTemplate>
                         </asp:TemplateField>
