@@ -168,13 +168,13 @@
 									</a>
 								</li>
 								<li>
-									<a href="index.html" class="dropdown-toggle">
+									<a href="myrecord.aspx" class="dropdown-toggle">
 										<i class="fa fa-table"></i>
 										<span>My Record</span>
 									</a>
 								</li>
 								<li>
-									<a href="widgets.html">
+									<a href="payment.aspx">
 										<i class="fa fa-money"></i>
 										<span>Payment</span>
 									</a>

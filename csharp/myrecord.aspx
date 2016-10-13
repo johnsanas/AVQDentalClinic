@@ -4,7 +4,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 
-	
+
 	<title>AVQ Dental Clinic</title>
 
 	<meta charset="utf-8">
@@ -171,7 +171,7 @@
 										</a>
 									</li>
 									<li>
-										<a href="#">
+										<a href="payment.aspx">
 											<i class="fa fa-money"></i>
 											<span>Payment</span>
 										</a>
