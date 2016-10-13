@@ -1,30 +1,34 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-	<title>Home | AVQ Dental Clinic</title>
-	 
-	<link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.min.css"/>
-	 
-	<script src="js/demo-rtl.js"></script>
-	 
-	<link rel="stylesheet" type="text/css" href="css/libs/font-awesome.css"/>
-	<link rel="stylesheet" type="text/css" href="css/libs/nanoscroller.css"/>
-	 
-	<link rel="stylesheet" type="text/css" href="css/compiled/theme_styles.css"/>
-	 
-	<link rel="stylesheet" href="css/libs/fullcalendar.css" type="text/css"/>
-	<link rel="stylesheet" href="css/libs/fullcalendar.print.css" type="text/css" media="print"/>
-	<link rel="stylesheet" href="css/compiled/calendar.css" type="text/css" media="screen"/>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="appointment.aspx.cs" Inherits="index" %>
 
-	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,600,700,300|Titillium+Web:200,300,400' rel='stylesheet' type='text/css'>
-	<!--[if lt IE 9]>
-			<script src="js/html5shiv.js"></script>
-			<script src="js/respond.min.js"></script>
-		<![endif]-->
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+	<title>AVQ Dental Clinic</title>
+
+	<meta charset="utf-8">
+ 	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	<script src="admin/js/demo-rtl.js"></script>
+	 
+	<link rel="stylesheet" type="text/css" href="admin/css/libs/font-awesome.css"/>
+	<link rel="stylesheet" type="text/css" href="admin/css/libs/nanoscroller.css"/>
+	 
+	<link rel="stylesheet" type="text/css" href="admin/css/compiled/theme_styles.css"/>
+	 
+	<link rel="stylesheet" href="admin/css/libs/fullcalendar.css" type="text/css"/>
+	<link rel="stylesheet" href="admin/css/libs/fullcalendar.print.css" type="text/css" media="print"/>
+	<link rel="stylesheet" href="admin/css/compiled/calendar.css" type="text/css" media="screen"/>
+
 </head>
+
 <body>
 <div id="theme-wrapper">
 	<header class="navbar" id="header-navbar">
@@ -131,7 +135,7 @@
 
 					<div id="col-left-inner" class="col-left-nano-content">
 						<div id="user-left-box" class="clearfix hidden-sm hidden-xs dropdown profile2-dropdown">
-							<img alt="" src="img/samples/robert-300.jpg"/>
+							<img alt="" src="admin/img/samples/robert-300.jpg"/>
 							<div class="user-box">
 								<span class="name">
 									<a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -160,7 +164,7 @@
 										<a href="#">
 										<i class="fa fa-calendar"></i>
 										<span>Appointment</span>
-										<span class="label label-primary label-circle pull-right">23</span>
+										<span class="label label-primary label-circle pull-right">6</span>
 									</a>
 								</li>
 								<li>
@@ -228,103 +232,103 @@
 	</div>
 </div>
 <div id="config-tool" class="closed">
-<a id="config-tool-cog">
-	<i class="fa fa-cog"></i>
-</a>
-<div id="config-tool-options">
-<h4>Layout Options</h4>
-<ul>
-	<li>
-		<div class="checkbox-nice">
-		<input type="checkbox" id="config-fixed-header"/>
-		<label for="config-fixed-header">
-			Fixed Header
-		</label>
-		</div>
-	</li>
-	<li>
-		<div class="checkbox-nice">
-			<input type="checkbox" id="config-fixed-sidebar"/>
-			<label for="config-fixed-sidebar">
-				Fixed Left Menu
-			</label>
-		</div>
-	</li>
-	<li>
-		<div class="checkbox-nice">
-			<input type="checkbox" id="config-fixed-footer"/>
-			<label for="config-fixed-footer">
-			Fixed Footer
-			</label>
-		</div>
-	</li>
-	<li>
-		<div class="checkbox-nice">
-			<input type="checkbox" id="config-boxed-layout"/>
-			<label for="config-boxed-layout">
-			Boxed Layout
-			</label>
-		</div>
-	</li>
-	<li>
-		<div class="checkbox-nice">
-			<input type="checkbox" id="config-rtl-layout"/>
-			<label for="config-rtl-layout">
-			Right-to-Left
-			</label>
-		</div>
-	</li>
-</ul>
-<br/>
-<h4>Skin Color</h4>
-<ul id="skin-colors" class="clearfix">
-<li>
-<a class="skin-changer" data-skin="theme-navyBlue" data-toggle="tooltip" title="Navy Blue" style="background-color: #34495e;">
-</a>
-</li>
-<li>
-<a class="skin-changer" data-skin="theme-white" data-toggle="tooltip" title="White/Green" style="background-color: #2ecc71;">
-</a>
-</li>
-<li>
-<a class="skin-changer blue-gradient" data-skin="theme-blue-gradient" data-toggle="tooltip" title="Gradient">
-</a>
-</li>
-<li>
-<a class="skin-changer" data-skin="theme-greenSea" data-toggle="tooltip" title="Green Sea" style="background-color: #6ff3ad;">
-</a>
-</li>
-<li>
-<a class="skin-changer" data-skin="theme-amethyst" data-toggle="tooltip" title="Amethyst" style="background-color: #9b59b6;">
-</a>
-</li>
-<li>
-<a class="skin-changer" data-skin="theme-blue" data-toggle="tooltip" title="Blue" style="background-color: #7FC8BA;">
-</a>
-</li>
-<li>
-<a class="skin-changer" data-skin="theme-red" data-toggle="tooltip" title="Red" style="background-color: #e74c3c;">
-</a>
-</li>
-<li>
-<a class="skin-changer" data-skin="theme-whbl" data-toggle="tooltip" title="White/Blue" style="background-color: #1ABC9C;">
-</a>
-</li>
-</ul>
+	<a id="config-tool-cog">
+		<i class="fa fa-cog"></i>
+	</a>
+	<div id="config-tool-options">
+		<h4>Layout Options</h4>
+		<ul>
+			<li>
+				<div class="checkbox-nice">
+				<input type="checkbox" id="config-fixed-header"/>
+				<label for="config-fixed-header">
+					Fixed Header
+				</label>
+				</div>
+			</li>
+			<li>
+				<div class="checkbox-nice">
+					<input type="checkbox" id="config-fixed-sidebar"/>
+					<label for="config-fixed-sidebar">
+						Fixed Left Menu
+					</label>
+				</div>
+			</li>
+			<li>
+				<div class="checkbox-nice">
+					<input type="checkbox" id="config-fixed-footer"/>
+					<label for="config-fixed-footer">
+					Fixed Footer
+					</label>
+				</div>
+			</li>
+			<li>
+				<div class="checkbox-nice">
+					<input type="checkbox" id="config-boxed-layout"/>
+					<label for="config-boxed-layout">
+					Boxed Layout
+					</label>
+				</div>
+			</li>
+			<li>
+				<div class="checkbox-nice">
+					<input type="checkbox" id="config-rtl-layout"/>
+					<label for="config-rtl-layout">
+					Right-to-Left
+					</label>
+				</div>
+			</li>
+		</ul>
+		<br/>
+		<h4>Skin Color</h4>
+		<ul id="skin-colors" class="clearfix">
+			<li>
+				<a class="skin-changer" data-skin="theme-navyBlue" data-toggle="tooltip" title="Navy Blue" style="background-color: #34495e;">
+				</a>
+			</li>
+			<li>
+				<a class="skin-changer" data-skin="theme-white" data-toggle="tooltip" title="White/Green" style="background-color: #2ecc71;">
+				</a>
+			</li>
+			<li>
+				<a class="skin-changer blue-gradient" data-skin="theme-blue-gradient" data-toggle="tooltip" title="Gradient">
+				</a>
+			</li>
+			<li>
+				<a class="skin-changer" data-skin="theme-greenSea" data-toggle="tooltip" title="Green Sea" style="background-color: #6ff3ad;">
+				</a>
+			</li>
+			<li>
+				<a class="skin-changer" data-skin="theme-amethyst" data-toggle="tooltip" title="Amethyst" style="background-color: #9b59b6;">
+				</a>
+			</li>
+			<li>
+				<a class="skin-changer" data-skin="theme-blue" data-toggle="tooltip" title="Blue" style="background-color: #7FC8BA;">
+				</a>
+			</li>
+			<li>
+				<a class="skin-changer" data-skin="theme-red" data-toggle="tooltip" title="Red" style="background-color: #e74c3c;">
+				</a>
+			</li>
+			<li>
+				<a class="skin-changer" data-skin="theme-whbl" data-toggle="tooltip" title="White/Blue" style="background-color: #1ABC9C;">
+				</a>
+			</li>
+		</ul>
+	</div>
 </div>
-</div>
  
-<script src="js/demo-skin-changer.js"></script>  
-<script src="js/jquery.js"></script>
-<script src="js/bootstrap.js"></script>
-<script src="js/jquery.nanoscroller.min.js"></script>
-<script src="js/demo.js"></script>  
+<script src="admin/js/demo-skin-changer.js"></script>  
+<script src="admin/js/jquery.js"></script>
+<script src="admin/js/bootstrap.js"></script>
+<script src="admin/js/jquery.nanoscroller.min.js"></script>
+<script src="admin/js/demo.js"></script>  
  
-<script src="js/jquery-ui.custom.min.js"></script>
-<script src="js/fullcalendar.min.js"></script>
+<script src="admin/js/jquery-ui.custom.min.js"></script>
+<script src="admin/js/fullcalendar.min.js"></script>
  
-<script src="js/scripts.js"></script>
-<script src="js/pace.min.js"></script>
+<script src="admin/js/scripts.js"></script>
+<script src="admin/js/pace.min.js"></script>
  
 <script>
 	$(document).ready(function() {
