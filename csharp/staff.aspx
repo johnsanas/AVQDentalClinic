@@ -10,7 +10,7 @@
 
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
     <link rel="stylesheet" type="text/css" href="css/theme_styles.css"/>
-    <link rel="stylesheet" type="text/css" href="css/font-awesome.css"/>
+    <link rel="stylesheet" type="text/css" href="font-awesome-4.6.3/css/font-awesome.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
 
     <script type="text/javascript" src="../js/bootstrap.js"></script>

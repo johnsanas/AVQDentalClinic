@@ -10,7 +10,7 @@
 
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
     <link rel="stylesheet" type="text/css" href="css/theme_styles.css"/>
-    <link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="font-awesome-4.6.3/css/font-awesome.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
 
     <script type="text/javascript" src="../js/bootstrap.js"></script>
@@ -183,36 +183,38 @@
         </div>
         <div class ="row">
             <div class="col-lg-12">
-                
-                <asp:GridView ID="gvPayments" runat="server" AutoGenerateColumns="false" CellPadding="5">
+                <br />
+                <span style="font-size:24px;">All Payments</span>
+                <br /><br />
+                <asp:GridView ID="gvPayments" runat="server" class="table table-hover" AutoGenerateColumns="false" CellPadding="5">
                     <Columns>
                         <asp:TemplateField HeaderText="Patient">
                             <ItemTemplate>
-                                <asp:Label ID="lblPatientName" runat="server" Text="FULL NAME"></asp:Label>
+                                <asp:Label ID="lblPatientName" runat="server" Text='<%# Eval("name") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
 
                         <asp:TemplateField HeaderText="Paid Amount">
                             <ItemTemplate>
-                                <asp:Label ID="lblPaidAmount" runat="server" Text="Paid Amount"></asp:Label>
+                                <asp:Label ID="lblPaidAmount" runat="server" Text='<%# Eval("paid") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
 
-                        <asp:TemplateField HeaderText="Balance">
+                        <asp:TemplateField HeaderText="Payment For">
                             <ItemTemplate>
-                                <asp:Label ID="lblBalance" runat="server" Text="Balance"></asp:Label>
+                                <asp:Label ID="lblBalance" runat="server" Text='<%# Eval("payment_for") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
 
                         <asp:TemplateField HeaderText="Received by">
                             <ItemTemplate>
-                                <asp:Label ID="lblReceivedBy" runat="server" Text="Received By"></asp:Label>
+                                <asp:Label ID="lblReceivedBy" runat="server" Text='<%# Eval("user_id") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
 
                         <asp:TemplateField HeaderText="Date/Time">
                             <ItemTemplate>
-                                <asp:Label ID="lblDateTime" runat="server" Text="DateTime"></asp:Label>
+                                <asp:Label ID="lblDateTime" runat="server" Text='<%# Eval("date_time") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>

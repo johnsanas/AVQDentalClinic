@@ -33,6 +33,7 @@ public partial class payments : System.Web.UI.Page
 
             }
             txtPayment.Text = "0";
+            PopulateGridView(gvPayments);
         }
         lblUserName.Text = (string)Session["username"];
     }
@@ -57,7 +58,7 @@ public partial class payments : System.Web.UI.Page
 
     protected void PopulateGridView(GridView gv)
     {
-        string query = "select * from payments";
+        string query = "select concat(patient.last_name,', ',patient.first_name,' ',patient.middle_name) as name, payments.paid, concat(services.name,' (',dental_records.date_time,')') as payment_for, payments.user_id, payments.date_time from payments inner join patient inner join dental_records inner join services where patient.id=payments.patient_id and dental_records.id=payments.payment_for and dental_records.service_id=services.id";
         DataSet ds = new DataSet();
         ds = BindData(query);
         gv.DataSource = ds.Tables[0];
@@ -82,7 +83,7 @@ public partial class payments : System.Web.UI.Page
         string dental_record_id = ddlPaymentFor.SelectedValue.ToString();
         double old_balance = 0, new_balance = 0;
 
-        string query = "insert into payments(patient_id,paid,balance,user_id,date_time) values("+ patient_id +","+ payment +",0,0,now())";
+        string query = "insert into payments(patient_id,paid,payment_for,user_id,date_time) values("+ patient_id +","+ payment +","+ Convert.ToInt32(dental_record_id) +",0,now())";
         Resources_Text.QuerySender(query);
 
         using (MySqlConnection con = new MySqlConnection(Resources_Text.ConnectionString)) {
