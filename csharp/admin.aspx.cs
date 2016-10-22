@@ -18,7 +18,7 @@ public partial class admin : System.Web.UI.Page
                 Response.Redirect("index.aspx");
             }
 
-            btnLogout.Text = "(" + (string)Session["username"] + ") Logout";
+            //btnLogout.Text = "(" + (string)Session["username"] + ") Logout";
             lblUserName.Text =  (string)Session["username"];
             PopulateGridView(gvPatient);
         }

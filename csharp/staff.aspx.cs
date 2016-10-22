@@ -99,6 +99,6 @@ public partial class staff : System.Web.UI.Page
 
         string query = "insert into users(last_name,first_name,middle_name,position,username,password) values('"+ last_name +"','"+ first_name +"','"+ middle_name +"','"+ position + "','"+ username +"','"+ password +"')";
         Resources_Text.QuerySender(query);
-        Response.Redirect("gumana");
+        Response.Redirect("admin.aspx");
     }
 }

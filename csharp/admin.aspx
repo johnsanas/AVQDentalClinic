@@ -108,13 +108,14 @@
 
                         <li>
                             <a href="staff.aspx">
+                            <i class="fa fa-users"></i>
                             <span>Staff</span>
                             </a>
                         </li>
 
                         <li>
                             <a href="payments.aspx">
-
+                            <i class="fa fa-money"></i>
                             <span>Payments</span>
                             </a>
                         </li>
@@ -134,7 +135,7 @@
                         <div id="content-header" class="clearfix">
                             <div class="pull-left">
                                 <ol class="breadcrumb">
-                                <li><a href="">Home</a></li>
+                                <li><a href="admin.aspx">Home</a></li>
                                 <li class="active"><span>Patients</span></li>
                                 </ol>
                                 <h1>Patients</h1>
@@ -155,40 +156,40 @@
                                 <span class="modal-title">ADD PATIENT</span>
                             </div>
                             <div class="modal-body">
-                                <table border="1">
+                                <table class="table">
                                     <tr>
                                         <td>First Name</td>
-                                        <td><asp:TextBox ID="add_txtFirstName" runat="server"></asp:TextBox>
+                                        <td><asp:TextBox ID="add_txtFirstName" runat="server" CssClass="form-control"></asp:TextBox>
 <%--                                        <asp:RequiredFieldValidator ID="req_add_txtFirstName" runat="server" ControlToValidate="add_txtFirstName" Text="First name is empty"></asp:RequiredFieldValidator>--%>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>Middle Name</td>
-                                        <td><asp:TextBox ID="add_txtMiddleName" runat="server"></asp:TextBox></td>
+                                        <td><asp:TextBox ID="add_txtMiddleName" runat="server" CssClass="form-control"></asp:TextBox></td>
                                     </tr>
                                     <tr>
                                         <td>Last Name</td>
-                                        <td><asp:TextBox ID="add_txtLastName" runat="server"></asp:TextBox></td>
+                                        <td><asp:TextBox ID="add_txtLastName" runat="server" CssClass="form-control"></asp:TextBox></td>
                                     </tr>
                                     <tr>
                                         <td>Address</td>
-                                        <td><asp:TextBox ID="add_txtAddress" runat="server"></asp:TextBox></td>
+                                        <td><asp:TextBox ID="add_txtAddress" runat="server" CssClass="form-control"></asp:TextBox></td>
                                     </tr>
                                     <tr>
                                         <td>Contact Number</td>
-                                        <td><asp:TextBox ID="add_txtContactNo" runat="server"></asp:TextBox></td>
+                                        <td><asp:TextBox ID="add_txtContactNo" runat="server" CssClass="form-control"></asp:TextBox></td>
                                     </tr>
                                     <tr>
                                         <td>Birthday</td>
-                                        <td><asp:TextBox ID="add_txtBirthday" runat="server"></asp:TextBox></td>
+                                        <td><asp:TextBox ID="add_txtBirthday" runat="server" CssClass="form-control"></asp:TextBox></td>
                                     </tr>
                                     <tr>
                                         <td>Status</td>
-                                        <td><asp:TextBox ID="add_txtStatus" runat="server"></asp:TextBox></td>
+                                        <td><asp:TextBox ID="add_txtStatus" runat="server" CssClass="form-control"></asp:TextBox></td>
                                     </tr>
                                     <tr>
                                         <td>Occupation</td>
-                                        <td><asp:TextBox ID="add_txtOccupation" runat="server"></asp:TextBox></td>
+                                        <td><asp:TextBox ID="add_txtOccupation" runat="server" CssClass="form-control"></asp:TextBox></td>
                                     </tr>
                                 </table>
                             </div>
@@ -206,7 +207,7 @@
                     <div>
                         <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modal_addPatient">Add Patient</button>
 
-                        <asp:Button ID="btnLogout" runat="server" Text="Logout" OnClick ="Click_btnLogout" />
+                        <%--<asp:Button ID="btnLogout" runat="server" Text="Logout" OnClick ="Click_btnLogout" />--%>
                     </div>
                     <br />
                     <asp:GridView class="table table-hover" ID="gvPatient" runat="server" AutoGenerateColumns ="false" CellPadding="5" OnRowEditing ="gvPatient_RowEditing" OnRowCancelingEdit="gvPatient_RowCancellingEdit" OnRowUpdating="gvPatient_RowUpdating" OnRowDataBound="gvPatient_RowDataBound">

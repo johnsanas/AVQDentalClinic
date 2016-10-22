@@ -106,14 +106,14 @@
 
                         <li class="active">
                             <a href="staff.aspx">
-
+                            <i class="fa fa-users"></i>
                             <span>Staff</span>
                             </a>
                         </li>
 
                         <li>
                             <a href="payments.aspx">
-
+                            <i class="fa fa-money"></i>
                             <span>Payments</span>
                             </a>
                         </li>
@@ -155,32 +155,32 @@
                                 <span class="modal-title">ADD STAFF</span>
                             </div>
                             <div class="modal-body">
-                                <table border="1">
+                                <table class="table">
                                     <tr>
                                         <td>Last Name</td>
-                                        <td><asp:TextBox ID="add_txtLastName" runat="server"></asp:TextBox>
+                                        <td><asp:TextBox ID="add_txtLastName" runat="server" CssClass="form-control"></asp:TextBox>
 <%--                                        <asp:RequiredFieldValidator ID="req_add_txtFirstName" runat="server" ControlToValidate="add_txtFirstName" Text="First name is empty"></asp:RequiredFieldValidator>--%>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>First Name</td>
-                                        <td><asp:TextBox ID="add_txtFirstName" runat="server"></asp:TextBox></td>
+                                        <td><asp:TextBox ID="add_txtFirstName" runat="server" CssClass="form-control"></asp:TextBox></td>
                                     </tr>
                                     <tr>
                                         <td>Middle Name</td>
-                                        <td><asp:TextBox ID="add_txtMiddleName" runat="server"></asp:TextBox></td>
+                                        <td><asp:TextBox ID="add_txtMiddleName" runat="server" CssClass="form-control"></asp:TextBox></td>
                                     </tr>
                                     <tr>
                                         <td>Position</td>
-                                        <td><asp:TextBox ID="add_txtPosition" runat="server"></asp:TextBox></td>
+                                        <td><asp:TextBox ID="add_txtPosition" runat="server" CssClass="form-control"></asp:TextBox></td>
                                     </tr>
                                     <tr>
                                         <td>Username</td>
-                                        <td><asp:TextBox ID="add_txtUserName" runat="server"></asp:TextBox></td>
+                                        <td><asp:TextBox ID="add_txtUserName" runat="server" CssClass="form-control"></asp:TextBox></td>
                                     </tr>
                                     <tr>
                                         <td>Password</td>
-                                        <td><asp:TextBox ID="add_txtPassword" runat="server" TextMode="Password"></asp:TextBox></td>
+                                        <td><asp:TextBox ID="add_txtPassword" runat="server" TextMode="Password" CssClass="form-control"></asp:TextBox></td>
                                     </tr>
                                 </table>
                             </div>
@@ -202,16 +202,16 @@
                             </ItemTemplate>
                             <EditItemTemplate>
                                 <asp:HiddenField ID="e_hdnStaffID" runat="server" Value='<%# Eval("id") %>'></asp:HiddenField>
-                                <asp:TextBox ID="e_txtLastName" runat="server" Text='<%# Eval("last_name") %>'></asp:TextBox>
+                                <asp:TextBox ID="e_txtLastName" runat="server" Text='<%# Eval("last_name") %>'  CssClass="form-control"></asp:TextBox>
                             </EditItemTemplate>
                         </asp:TemplateField>
                         
                         <asp:TemplateField HeaderText="First Name">
                             <ItemTemplate>
-                                <asp:Label ID="lblFirstName" runat="server" Text='<%# Eval("middle_name") %>'></asp:Label>
+                                <asp:Label ID="lblFirstName" runat="server" Text='<%# Eval("first_name") %>'></asp:Label>
                             </ItemTemplate>
                             <EditItemTemplate>
-                                <asp:TextBox ID="e_txtFirstName" runat="server" Text='<%# Eval("middle_name") %>'></asp:TextBox>
+                                <asp:TextBox ID="e_txtFirstName" runat="server" Text='<%# Eval("first_name") %>' CssClass="form-control"></asp:TextBox>
                             </EditItemTemplate>
                         </asp:TemplateField>
 
@@ -220,7 +220,7 @@
                                 <asp:Label ID="lblMiddleName" runat="server" Text='<%# Eval("middle_name") %>'></asp:Label>
                             </ItemTemplate>
                             <EditItemTemplate>
-                                <asp:TextBox ID="e_txtMiddleName" runat="server" Text='<%# Eval("middle_name") %>'></asp:TextBox>
+                                <asp:TextBox ID="e_txtMiddleName" runat="server" Text='<%# Eval("middle_name") %>' CssClass="form-control"></asp:TextBox>
                             </EditItemTemplate>
                         </asp:TemplateField>
 
@@ -229,7 +229,7 @@
                                 <asp:Label ID="lblPosition" runat="server" Text='<%# Eval("position") %>'></asp:Label>
                             </ItemTemplate>
                             <EditItemTemplate>
-                                <asp:TextBox ID="e_txtPosition" runat="server" Text='<%# Eval("position") %>'></asp:TextBox>
+                                <asp:TextBox ID="e_txtPosition" runat="server" Text='<%# Eval("position") %>' CssClass="form-control"></asp:TextBox>
                             </EditItemTemplate>
                         </asp:TemplateField>
 
@@ -239,7 +239,7 @@
                             </ItemTemplate>
                             <EditItemTemplate>
                                 <asp:Button ID="btnUpdate" runat="server" Text="Update" ToolTip ="Update" CommandName="Update" CssClass="btn btn-success"/>
-                                <asp:Button ID="btnCancel" runat="server" Text="Cancel" ToolTip="Cancel" CommandName="Cancel"/>
+                                <asp:Button ID="btnCancel" runat="server" Text="Cancel" ToolTip="Cancel" CommandName="Cancel" CssClass="btn btn-danger"/>
                             </EditItemTemplate>
                         </asp:TemplateField>
                       </Columns>

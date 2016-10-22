@@ -58,7 +58,7 @@ public partial class payments : System.Web.UI.Page
 
     protected void PopulateGridView(GridView gv)
     {
-        string query = "select concat(patient.last_name,', ',patient.first_name,' ',patient.middle_name) as name, payments.paid, concat(services.name,' (',dental_records.date_time,')') as payment_for, payments.user_id, payments.date_time from payments inner join patient inner join dental_records inner join services where patient.id=payments.patient_id and dental_records.id=payments.payment_for and dental_records.service_id=services.id";
+        string query = "select concat(patient.last_name,', ',patient.first_name,' ',patient.middle_name) as name, payments.paid, concat(services.name,' (',dental_records.date_time,')') as payment_for, payments.user_id, payments.date_time from payments inner join patient inner join dental_records inner join services where patient.id=payments.patient_id and dental_records.id=payments.payment_for and dental_records.service_id=services.id order by payments.date_time desc";
         DataSet ds = new DataSet();
         ds = BindData(query);
         gv.DataSource = ds.Tables[0];

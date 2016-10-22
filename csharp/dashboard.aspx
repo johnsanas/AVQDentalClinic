@@ -106,14 +106,14 @@
 
                         <li>
                             <a href="staff.aspx">
-
+                            <i class="fa fa-users"></i>
                             <span>Staff</span>
                             </a>
                         </li>
 
                         <li>
                             <a href="payments.aspx">
-
+                            <i class="fa fa-money"></i>
                             <span>Payments</span>
                             </a>
                         </li>
